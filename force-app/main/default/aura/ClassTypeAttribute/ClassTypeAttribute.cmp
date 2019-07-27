@@ -1,0 +1,21 @@
+<aura:component controller="ClassTypeAttributeLightning" 
+                implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global">
+    
+    <aura:attribute name="dataFromClass" type="ClassTypeAttributeLightning" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card title="Display Welcome Message">
+        {!v.dataFromClass.welcomeMessage}
+    </lightning:card>
+
+    <lightning:card title="User Name">
+        {!v.dataFromClass.userName}
+    </lightning:card>
+
+    <lightning:card title="Display Account Data">
+        <aura:iteration items="{!v.dataFromClass.accountList}" var="accList">
+            {!accList.Name} <br/>
+        </aura:iteration>
+    </lightning:card>
+</aura:component>

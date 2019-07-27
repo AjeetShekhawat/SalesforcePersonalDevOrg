@@ -1,0 +1,30 @@
+<apex:page controller="FinalController">
+    <apex:form >
+        <apex:pageBlock >
+  
+            <apex:selectList size="1" value="{!count}">City &nbsp;
+                <apex:selectOptions value="{!numberOfQuestions}"/>
+                <apex:actionSupport event="onchange" action="{!showQuestions}" reRender="abcd">
+                </apex:actionSupport>
+            </apex:selectList>
+			&nbsp;&nbsp;&nbsp;   
+           	<apex:selectList size="1" value="{!count1}">Department &nbsp;
+                <apex:selectOptions value="{!numberOfQuestions1}"/>
+                <apex:actionSupport event="onchange" action="{!showQuestions}" reRender="abcd">
+                </apex:actionSupport>
+        	</apex:selectList>
+      		&nbsp;&nbsp;&nbsp; 
+            
+            <apex:inputText value="{!search}" >Search Users :
+            	<apex:actionSupport action="{!afterSearch}" event="onkeyup" reRender="abcd"/>
+            </apex:inputText>
+        	<apex:pageBlockSection >
+            	<apex:pageBlockTable value="{!acclistFilter}" var="accFilter" id="abcd">                
+                    <apex:column value="{!accFilter.username}"/>
+                    <apex:column value="{!accFilter.city}"/>
+                    <apex:column value="{!accFilter.Department}"/>
+        		</apex:pageBlockTable> 
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,39 @@
+<template>
+    <lightning-card>
+        <template if:true={accountReocrds}>
+            Apex success
+        </template>
+        <template if:false={accountReocrds}>
+                Apex unsuccess
+            </template>
+        Account Name :
+        <template for:each={accountReocrds} for:item="acc" for:index="accIndex">
+            <p key={acc.Id}>
+                {acc.Name} <br/>
+            </p>    
+        </template>
+
+    </lightning-card>
+    <lightning-card>
+        <lightning-button label="Fetch Contact" onclick={handleClick} ></lightning-button> <br>
+        Contact Name :
+        <template for:each={contactReocrds} for:item="con" for:index="conIndex">
+            <p key={con.Id}>
+                {con.Name} <br/>
+            </p>    
+        </template>
+    </lightning-card>
+
+    
+
+    <lightning-card>
+        <lightning-input label="Enter Account Name" value={searchKey} onchange={handleClickForFilteredData}></lightning-input> <br>
+        Filtered Account Name :
+        <template for:each={accountFilterRecords} for:item="con" for:index="conIndex">
+            <p key={con.Id}>
+                {con.Name} <br/>
+            </p>    
+        </template>
+    </lightning-card>
+    
+</template>

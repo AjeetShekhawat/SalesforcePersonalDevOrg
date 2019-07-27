@@ -1,0 +1,97 @@
+<apex:page controller="SLDS_WrapperExampleController" sidebar="false"  >
+    <head>
+        <style>
+            <apex:slds />
+            .forTable{
+            	    border: solid 2px black;
+            }
+        </style>
+    </head>
+    <body>
+		<apex:form id="theForm" >
+        <apex:commandButton reRender="theForm" value="Process" style="margin: 0px 0px 6px 47em;" styleClass="slds-button slds-button_brand" action="{!doSelectedRecord}" />
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer forTable">
+      	<thead>
+            <tr class="slds-text-title_caps">
+              <th scope="col">
+                <div class="slds-truncate" title="Opportunity Name">Action</div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Account Name">Account Name</div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Close Date">Industry</div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Stage">Rating</div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Confidence">Type</div>
+              </th>
+            </tr>
+      </thead>
+      <tbody>
+		<apex:repeat value="{!accList}" var="abc">
+        <tr>
+          <td>
+              <apex:inputCheckbox value="{!abc.check}"/>
+          </td>
+            <td>
+              <apex:outputField value="{!abc.acct.Name}"/>
+          </td>
+            <td>
+                <apex:outputField value="{!abc.acct.Industry}"/>
+          </td>
+            <td>
+                <apex:outputField value="{!abc.acct.Rating}"/>
+          </td>
+            <td>
+                <apex:outputField value="{!abc.acct.Type}"/>
+          </td>
+              </tr>
+            </apex:repeat>
+      </tbody>
+    </table>
+                <br/>
+                <br/>
+                <!-- For Other Table -->
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer forTable">
+      <thead>
+        <tr class="slds-text-title_caps">
+          <th scope="col">
+            <div class="slds-truncate" title="Account Name">Account Name</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="Close Date">Industry</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="Stage">Rating</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="Confidence">Type</div>
+          </th>
+          
+        </tr>
+      </thead>
+      <tbody>
+          <apex:repeat value="{!selAccList}" var="abc">
+        <tr>
+            <td>
+              <apex:outputField value="{!abc.Name}"/>
+          </td>
+            <td>
+                <apex:outputField value="{!abc.Industry}"/>
+          </td>
+            <td>
+                <apex:outputField value="{!abc.Rating}"/>
+          </td>
+            <td>
+                <apex:outputField value="{!abc.Type}"/>
+          </td>
+              </tr>
+            </apex:repeat>
+      </tbody>
+    </table>
+            </apex:form>
+    </body>
+</apex:page>

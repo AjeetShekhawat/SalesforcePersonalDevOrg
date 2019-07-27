@@ -1,0 +1,20 @@
+<!-- helperDemoComponent  -->
+
+<aura:component controller="ApexController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!--p onclick="{!c.showAlert}">hello click on me</p>
+	<p id="method1"></p>
+    <p id="method2"></p-->
+	
+    <aura:handler name="init" value="{!this}" action="{!c.showName}"/> 
+    <aura:attribute name="name" type="String" default="No name to display"/> 
+    <!--lightning:button label = "Click Me" onclick = "{!c.showName}" /--><br/><br/>
+    Hard code Name is : {!v.name}
+    <br/><br/>
+    <aura:attribute name="accounts" type="String" default="No Account to display"/>
+    <button class="slds-button slds-button_brand" onclick="{!c.showAccount}">Click me</button><br/><br/>
+    
+
+	<!--p onclick="{!c.showAccount}">Click Here to show account name</p-->    
+    {!v.accounts}
+    
+</aura:component>

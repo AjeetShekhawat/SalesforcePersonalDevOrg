@@ -1,0 +1,8 @@
+<!-- This component will be called when user click on formula field(tryFormula) on Account object.
+-->
+
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,lightning:isUrlAddressable,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="accountName" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    Name of the account is : {!v.accountName}
+</aura:component>

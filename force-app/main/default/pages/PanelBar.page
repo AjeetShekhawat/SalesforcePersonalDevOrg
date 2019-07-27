@@ -1,0 +1,8 @@
+<apex:page standardController="account" showHeader="true" sidebar="true">
+    <apex:panelBar >
+    	<apex:panelBarItem label="account">
+        	<apex:detail subject="{!account.id}" relatedList="true" title="true"/>
+        </apex:panelBarItem>
+        <apex:panelBarItem label="account">data 2</apex:panelBarItem>
+    </apex:panelBar>
+</apex:page>

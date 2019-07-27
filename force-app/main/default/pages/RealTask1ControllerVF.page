@@ -1,0 +1,58 @@
+<apex:page controller="RealTask1Controller" sidebar="false">
+   <apex:form >
+   	<head>
+        <apex:includeScript value="//code.jquery.com/jquery-3.3.1.js"/>                                <!-- Including CDN-->
+        <apex:includeScript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"/>         <!-- Including CDN-->
+        <apex:styleSheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>          <!-- Including CDN-->
+   
+        <script>
+            j$ = jQuery.noConflict();                     //To avoid Conflict
+            j$(document).ready(function(){      
+            j$('[id$="conTab"]').DataTable();             //Jquery function for styling the table
+            } );
+        </script>        
+   </head>
+  
+   <body>
+       <table id="conTab" >
+           <thead id="thead">
+                <tr>
+                    <th>Account Name</th>
+                    <th>Account Description</th>          <!-- Table Headings -->
+                    <th>Account Rating</th>
+                    <th>Account Revenue</th>
+               </tr>
+           </thead>
+           <tbody>
+               <apex:repeat value="{!acclist}" var="m" >
+                <tr>
+                    <td>{!m.name}</td>
+                    <td>{!m.description}</td>          <!-- Table Body -->
+                    <td>{!m.Rating}</td>
+                    <td>{!m.AnnualRevenue}</td>
+                </tr>
+               </apex:repeat>
+           </tbody>
+       </table>
+   </body>
+   
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+    
+   <apex:pageBlock >
+       <apex:pageBlockTable value="{!wrapperList}" var="w" id="conTab">
+       <apex:column headervalue="SL No."><apex:outputText >{!w.SLNo}</apex:outputText></apex:column>
+           <apex:column headerValue="Select"><apex:inputCheckbox value="{!w.checkbox}"/></apex:column>
+           <apex:column value="{!w.acc.Name}" headerValue="Account Name"/>
+           <apex:column value="{!w.acc.Description}" headerValue="Account Description"/>
+           <apex:column value="{!w.acc.Rating}" headerValue="Account Rating"/>
+           <apex:column value="{!w.acc.AnnualRevenue}" headerValue="Account Revenue"/>
+       </apex:pageBlockTable>
+       </apex:pageBlock>
+       
+</apex:form>    
+</apex:page>

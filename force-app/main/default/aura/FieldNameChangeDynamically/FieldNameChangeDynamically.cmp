@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="inValue" type="String" />
+    <aura:attribute name="selectedValue" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.loadOptions}" />
+    
+    <lightning:select name="mySelect" label="Select a color:" required="true" aura:id="mySelect" 
+                      value="{!v.selectedValue}" messageWhenValueMissing="Did you forget to select a color?" >
+        <aura:iteration items="{!v.options}" var="item">
+            <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    <lightning:input name="input1" label="{!v.selectedValue}" value="{!v.inValue}"/>
+    <lightning:button variant="neutral" label="Click Here" title="Base action" onclick="{! c.handleClick }"/>
+</aura:component>

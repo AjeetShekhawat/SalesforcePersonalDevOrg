@@ -1,0 +1,20 @@
+<!-- VisualForce Page Responsible for Entry of Contact Records -->
+
+<apex:page controller="AccountPageController">
+	<apex:form >
+        <apex:pageBlock title="Account Information" >
+            <apex:pageBlockTable value="{!acc}" var="a" title="Results">
+                <apex:inlineEditSupport showOnEdit="update, cancelButton"
+                 hideOnEdit="editButton" event="ondblclick"
+                changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+                <apex:column headerValue="Name">
+                	<apex:outputfield value="{!a.name}"/>
+                </apex:column>
+                <apex:column headerValue="id">
+                	<apex:outputfield value="{!a.id}"/>
+                </apex:column>
+            </apex:pageBlockTable>    
+        </apex:pageBlock>
+        <apex:commandButton id="update" action="{!quickUpdat}" value="UpdateRecord"/>
+	</apex:form>
+</apex:page>

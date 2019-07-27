@@ -1,0 +1,25 @@
+<aura:component implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
+	
+    <aura:attribute name="displayToggleMessage" type="string" />
+    <ui:button class="slds-align_absolute-center" label="Click Me To Popup!!!" press="{!c.openmodal}"  /> 
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal slds-modal_large">
+            <div class="slds-modal__container" style="width: 65%;">
+                <div class="slds-modal__header">
+                	EDIT
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <!--FIRSTSECTION-->
+                       
+                     <div class="slds-grid slds-p-top_medium">
+                        <div class="slds-size_6-of-12 slds-p-left_xx-large slds-p-horizontal_x-large " >
+                            <lightning:input label="Property Original Name" name="myname" value="{!v.displayToggleMessage}" /> 
+                        </div>
+                	</div>
+                </div>
+                <div class="slds-modal__footer">
+                    <ui:button label="close" press="{!c.closeModal}"  />
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop " aura:id="Modalbackdrop"></div>   
+</aura:component>

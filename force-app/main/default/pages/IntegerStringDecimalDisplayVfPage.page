@@ -1,0 +1,41 @@
+<apex:page controller="IntegerStringDecimalDisplayController" sidebar="false">
+     <head>
+        <style>
+            <apex:slds />
+        </style>
+    </head>
+    <body>
+        <apex:form >
+        	<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                <tr class="slds-text-title_caps">
+                <th scope="col">
+                <div class="slds-truncate" title="Integer">Integer</div>
+                </th>
+                <th scope="col">
+                <div class="slds-truncate" title="String">String</div>
+                </th>
+                <th scope="col">
+                <div class="slds-truncate" title="Decimal">Decimal</div>
+                </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!dataTypeList}" var="abc">
+                    <tr>
+                        <td>
+                          <apex:outputText value="{!abc.inte}"/>
+                        </td>
+                        <td>
+                        	<apex:outputText value="{!abc.str}"/>
+                        </td>
+                        <td>
+                        	<apex:outputText value="{!abc.deci}"/>
+                        </td>
+                    </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:form>
+    </body>
+</apex:page>

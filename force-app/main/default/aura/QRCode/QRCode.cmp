@@ -1,0 +1,26 @@
+<!-- QRCode -->
+
+<aura:component controller="FetchAccountRecord" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="invoiceList" type="Account[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-text-heading_label">
+                <th scope="col"><div class="slds-truncate" title="ID">Invoice Name</div></th>
+                <th scope="col"><div class="slds-truncate" title="Price">Total Amount</div></th>
+                <th scope="col"><div class="slds-truncate" title="Scan QR Code">Scan QR Code</div></th>  
+            </tr>
+        </thead>
+        
+        <tbody>
+            <aura:iteration items="{!v.invoiceList}" var="inv">
+                <tr>
+                    <td scope="row"><div class="slds-truncate" title="{!inv.Name}">{!inv.Name}</div></td>
+                    <td><div class="slds-truncate" title="{!inv.Price__c}">{!inv.Total_Amount__c}</div></td>  
+                    <td><div class="slds-truncate" title="Scan QR Code"><aura:unescapedHtml value="{!inv.QR_Code__c}" /></div></td>  
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>   
+</aura:component>

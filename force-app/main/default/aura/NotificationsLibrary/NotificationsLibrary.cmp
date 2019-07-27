@@ -1,0 +1,13 @@
+<!-- NotificationsLibrary -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <lightning:buttonGroup>
+        <lightning:button variant="Neutral" label="Notice Info" onclick="{!c.showNoticeInfo}"/>
+        <lightning:button variant="Neutral" label="Notice Error" onclick="{!c.showNoticeError}"/>
+        <lightning:button variant="Neutral" label="Notice Warning" onclick="{!c.showNoticeWarning}"/>
+        <lightning:button variant="Neutral" label="Toast Info" onclick="{!c.showToastInfo}"/>
+        <lightning:button variant="Neutral" label="Toast Warning" onclick="{!c.showToastWarning}"/>
+        <lightning:button variant="Neutral" label="Toast Success" onclick="{!c.showToastSuccess}"/>
+        <lightning:button variant="Neutral" label="Toast Error" onclick="{!c.showToastError}"/>
+    </lightning:buttonGroup>
+</aura:component>

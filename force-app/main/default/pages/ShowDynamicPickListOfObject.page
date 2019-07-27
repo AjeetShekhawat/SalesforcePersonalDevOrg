@@ -1,0 +1,8 @@
+<apex:page controller="DynamicPickListOfObject">
+<apex:form >
+<apex:outputlabel value="All Objects"/>&nbsp;&nbsp;
+<apex:selectList size="1">
+<apex:selectoptions value="{!objnames}"></apex:selectoptions>
+</apex:selectList>
+</apex:form>
+</apex:page>

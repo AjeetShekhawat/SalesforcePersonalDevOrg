@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<lightning:listView aura:id="listViewAccounts"
+    objectApiName="Bank__c"
+    listName="All"
+    rows="5"
+    showActionBar="true"
+    enableInlineEdit="false"
+    showRowLevelActions="true"
+/>
+</aura:component>

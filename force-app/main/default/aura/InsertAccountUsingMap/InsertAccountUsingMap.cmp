@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="AccountMap">
+	
+    <aura:attribute name="accountList" type="sObject" description="Store account records in this map" 
+                    default="{ 'sobjectType': 'Account'}"/>
+    
+    
+    <lightning:input name="Name" value="{! v.accountList.Name }" placeholder="type your first name..." label="Name" />
+    <lightning:input name="Site" value="{! v.accountList.Site }" placeholder="type your Site name..." label="Site" />
+    <lightning:input name="Phone" value="{! v.accountList.Phone }" placeholder="type your Phone name..." label="Phone" />
+    
+    <lightning:button variant="success" label="Save" title="Save" onclick="{! c.SaveRecords }"/>
+</aura:component>

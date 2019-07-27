@@ -1,0 +1,24 @@
+<apex:page controller="ShowAccountListView">
+    <apex:form >
+    	<apex:pageBlock title="Account List">
+        	<apex:pageBlockSection >
+            	<apex:inputText label="Enter Account Name" value="{!accountname}"/>
+                <apex:pageBlockTable value="{!acc}" var="nameVar">  
+            		<apex:column value="{!nameVar.name}"/>
+            	</apex:pageBlockTable>
+				<apex:pageBlockTable value="{!con}" var="nameVar1">  
+            		<apex:column value="{!nameVar1.name}"/>
+            	</apex:pageBlockTable>
+            </apex:pageBlockSection>
+            <apex:outputPanel rendered="{!acc.size == 0}">
+            	Record not found
+            </apex:outputPanel>
+            <apex:pageBlockButtons location="top">
+                	<apex:commandButton value="Search" action="{!save}" />
+            </apex:pageBlockButtons>
+           <apex:pageBlockButtons location="bottom">
+                	<apex:commandButton value="Clear" action="{!Clear}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<!-- JavaScriptUsageCompo -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute Name="Name" type="String" default="Ajay">
+    	<html>
+            <head>
+            	<title>Lightning Component</title>
+            </head>
+        	<p>Hello Peeps</p>
+            	{!v.Name}
+            <h2 onmouseover="{!c.onClickEvent}">Try mouse here</h2>
+        </html>
+    </aura:attribute>
+</aura:component>

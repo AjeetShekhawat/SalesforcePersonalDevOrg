@@ -1,0 +1,7 @@
+<apex:page controller="CustomSettingsDemoExt">
+
+<apex:outputPanel rendered="{!Enable}" >
+     This panel is displayed when allowed for the profile in Custom settings
+</apex:outputPanel>
+
+</apex:page>

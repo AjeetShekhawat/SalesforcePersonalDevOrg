@@ -1,0 +1,13 @@
+<apex:page controller="ActionRegionController">
+	<apex:form >
+    	<apex:selectList value="{!selectedValue}" size="1">
+            <apex:selectOptions value="{!pickList}"/>
+            <apex:actionSupport event="onchange" reRender="formId" action="{!showField}"/>
+        </apex:selectList><br/><br/>
+        <apex:actionRegion >
+        	<apex:commandButton value="Show Field">
+                <apex:outputText value="This will show after button click" rendered="{!state}"></apex:outputText>
+        	</apex:commandButton>
+        </apex:actionRegion>
+    </apex:form>
+</apex:page>

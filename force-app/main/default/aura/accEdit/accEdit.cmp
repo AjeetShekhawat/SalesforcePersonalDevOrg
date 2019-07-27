@@ -1,0 +1,99 @@
+<!-- -
+Use force:recordData to create two Lightning components that display and edit the details of an account
+Scenario:
+Create Lightning components to manage accounts. Use force:recordData to create a component that displays the details of a standard account record, and another component that allows for quick edits to that record.
+Create a display component named accDisplay.cmp using the record attribute named accountRecord that displays the record and record's Name using lightning:card, its Industry and Description using lightning:formattedText, and Phone using lightning:formattedPhone
+Create an edit component named accEdit.cmp using the record attribute named accountRecord that allows edits to the Name field. Use the fields attribute to query for Name.
+Add the following UI elements to accEdit.cmp:
+lightning:input - "Account Name"
+lightning:button - "Save Account"
+In the Salesforce UI, use the Lightning App Builder to add accDisplay.cmp and accEdit.cmp to the account record home page layout. Check out the Lightning App Builder module if you need a refresher.
+
+
+2nd Scenario : Use force:recordData to create a component that shows an error message if it is loaded with invalid data
+Build on the components you created in the previous unit challenge by adding notification handling to your components. If the edits in your editable component create an error, make sure the display component shows an error message.
+The accEdit component displays an error message if the edits made in the component are invalid
+Name the attribute that holds the error message recordSaveError 
+-->
+
+
+<!--
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="record"
+                    type="Object"
+                    description="The record object to be displayed"/>
+    <aura:attribute name="accountRecord"
+                    type="Object"
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError"
+                    type="Object"
+                    description="An error message bound to force:recordData"/>
+    
+    <force:recordData aura:id="accountRecordId"
+                      recordId="{!v.recordId}"
+                      fields="Name"
+                      mode="EDIT"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordError}"/>
+    
+    
+    <!-** Display an editing form **>
+    <div class="Record Details">
+        <lightning:card iconName="action:edit" title="Edit Account">
+            <div class="slds-p-horizontal**small">
+                <lightning:input label="Account Name" value="{!v.accountRecord.Name}"/>
+                <br/>
+                <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSaveRecord}" />
+            </div>
+        </lightning:card>
+    </div>
+    
+    <!** Display Lightning Data Service errors, if any **>
+    <aura:if isTrue="{!not(empty(v.recordError))}">
+        <div class="recordError">
+            {!v.recordError}
+        </div>
+    </aura:if>
+</aura:component>
+
+-->
+
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome">
+ <aura:attribute name="record"
+                   type="Object"
+                   description="The record object to be displayed"/>
+    <aura:attribute name="accountRecord"
+                    type="Object"
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordSaveError"
+                    type="String"
+                    description="An error message bound to force:recordData"/>
+    
+    <force:recordData aura:id="accountRecordId"
+                      recordId="{!v.recordId}"
+                      fields="Name"
+                      mode="EDIT"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordSaveError}"/>
+    
+    
+    <!-- Display an editing form -->
+    <div class="Record Details">
+        <lightning:card iconName="action:edit" title="Edit Account">
+            <div class="slds-p-horizontal--small">
+                <lightning:input label="Account Name" value="{!v.accountRecord.Name}"/>
+                <br/>
+                <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSaveRecord}" />
+            </div>
+        </lightning:card>
+    </div>
+    
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordSaveError))}">
+        <div class="recordError">
+            {!v.recordSaveError}
+        </div>
+    </aura:if>
+</aura:component>

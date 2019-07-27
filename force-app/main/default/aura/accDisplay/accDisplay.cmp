@@ -1,0 +1,47 @@
+<!-- 
+Use force:recordData to create two Lightning components that display and edit the details of an account
+Scenario:
+Create Lightning components to manage accounts. Use force:recordData to create a component that displays the details of a standard account record, and another component that allows for quick edits to that record.
+Create a display component named accDisplay.cmp using the record attribute named accountRecord that displays the record and record's Name using lightning:card, its Industry and Description using lightning:formattedText, and Phone using lightning:formattedPhone
+Create an edit component named accEdit.cmp using the record attribute named accountRecord that allows edits to the Name field. Use the fields attribute to query for Name.
+Add the following UI elements to accEdit.cmp:
+lightning:input - "Account Name"
+lightning:button - "Save Account"
+In the Salesforce UI, use the Lightning App Builder to add accDisplay.cmp and accEdit.cmp to the account record home page layout. Check out the Lightning App Builder module if you need a refresher.
+
+ -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="record"
+                    type="Object"
+                    description="The record object to be displayed"/>
+    <aura:attribute name="accountRecord"
+                    type="Object"
+                    description="A simplified view record object to be displayed"/>
+    <aura:attribute name="recordError"
+                    type="Object"
+                    description="An error message bound to force:recordData"/>
+    
+    <force:recordData aura:id="accountRecordId"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      mode="VIEW"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.accountRecord}"                      targetError="{!v.recordError}"/>
+    
+    <!-- Display a lightning card with details about the record -->
+    <div class="Record Details">
+        <lightning:card iconName="standard:account" title="{!v.accountRecord.Name}">
+            <div class="slds-p-horizontal--small">
+                <p>
+                    <lightning:formattedText title="Industry" value="{!v.accountRecord.Industry}"/>
+                </p>
+                <p>
+                    <lightning:formattedText title="Description" value="{!v.accountRecord.Description}"/>
+                </p>
+                <p>
+                    <lightning:formattedPhone title="Phone" value="{!v.accountRecord.Phone}"/>
+                </p>
+            </div>
+        </lightning:card>                        
+    </div>
+</aura:component>

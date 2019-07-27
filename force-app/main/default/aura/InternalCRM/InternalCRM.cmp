@@ -1,0 +1,67 @@
+<aura:component controller="InternalCRM" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="AccountName" type="String"/>
+    <aura:attribute name="Rating" type="String"/>
+    <aura:attribute name="Phone" type="String"/>
+	<div class="slds-m-bottom_small slds-page-header"></div>
+<table class="slds-table slds-no-row-hover slds-table_bordered slds-table_striped slds-table_col-bordered">
+    <thead>
+        <tr class="slds-text-title_caps">
+            <th>
+                <div class="slds-truncate" title="Column 1">Sno </div>
+            </th>
+            <th>
+                <div class="slds-truncate" title="Column 1">Account Name</div>
+            </th>
+            <th>
+                <div class="slds-truncate" title="Column 1">Rating</div>
+            </th>
+            <th>
+                <div class="slds-truncate" title="Column 1">Phone</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="slds-hint-parent">
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:button label="1"></lightning:button>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:input value="{! v.AccountName }" label="Input label" placeholder="Account Name" type="text" variant="label-hidden"></lightning:input>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:input value="{! v.Rating }" label="Input label" placeholder="Rating" type="text" variant="label-hidden"></lightning:input>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:buttonGroup></lightning:buttonGroup>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:input value="{! v.Phone }" label="Input label" placeholder="Phone" type="text" variant="label-hidden"></lightning:input>
+            </td>
+        </tr>
+        <tr class="slds-hint-parent">
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:button label="2"></lightning:button>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:input value="{! v.AccountName1 }" label="Input label" placeholder="Account Name" type="text" variant="label-hidden"></lightning:input>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:input value="{! v.Rating1 }" label="Input label" placeholder="Rating" type="text" variant="label-hidden"></lightning:input>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:buttonGroup></lightning:buttonGroup>
+            </td>
+            <td class="slds-cell-buffer_left slds-cell-buffer_right">
+                <lightning:input value="{! v.Phone1 }" label="Input label" placeholder="Phone" type="text" variant="label-hidden"></lightning:input>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ul class="slds-list_horizontal slds-has-dividers_left">
+    <li class="slds-item"></li>
+    <li class="slds-item"></li>
+    <li class="slds-item"></li>
+    </ul> <br/>
+    <!--button class="slds-button slds-button_success" >Yes</button-->
+    <lightning:button variant="success" label="Save" title="Success" onclick="{! c.saveRecords }"/>
+</aura:component>

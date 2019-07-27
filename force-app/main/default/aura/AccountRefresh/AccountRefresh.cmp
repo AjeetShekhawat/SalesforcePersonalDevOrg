@@ -1,0 +1,33 @@
+<!-- AccountRefresh  -->
+
+<aura:component controller="RefreshInterval" implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="dispalyAccountRecords" type="Integer" />
+    <aura:attribute name="dispalyContactRecords" type="Integer" />
+    
+     <lightning:layout multipleRows="true">
+        <lightning:layoutItem padding="around-large" flexibility="auto">
+            <lightning:card>
+                <aura:set attribute="title">
+                    <lightning:icon iconName="utility:connected_apps" size="small"/>
+                    Account Total
+                </aura:set>
+                <aura:set attribute="footer">
+                    {!v.dispalyAccountRecords}
+                </aura:set>
+            </lightning:card>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-large" size="6" smallDeviceSize="12" mediumDeviceSize="6">
+            <lightning:card>
+                <aura:set attribute="title">
+                    <lightning:icon iconName="utility:connected_apps" size="small"/>
+                    Total Contact
+                </aura:set>
+                <aura:set attribute="footer">
+                    {!v.dispalyContactRecords}
+                </aura:set>
+            </lightning:card>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

@@ -1,0 +1,74 @@
+<apex:page controller="AccountRecordsInTableController" sidebar="false">
+	<apex:form >
+        <apex:inputText value="{!search}" >Enter any Character
+            <apex:commandButton value="Search Record"><apex:actionSupport event="onClick" reRender="conTab1" /></apex:commandButton>
+        </apex:inputText>
+        <br/>
+            <br/>
+            <br/>
+            <br/>
+        <head>
+            <apex:includeScript value="//code.jquery.com/jquery-3.3.1.js"/>                                <!-- Including CDN-->
+            <apex:includeScript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"/>         <!-- Including CDN-->
+       		<apex:styleSheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>          <!-- Including CDN-->
+   
+            <script>
+                j$ = jQuery.noConflict();                     //To avoid Conflict
+                j$(document).ready(function(){      
+            	j$('[id$="conTab1"]').DataTable();
+                j$('[id$="conTab21"]').DataTable();    //Jquery function for styling the table
+        		} );
+            </script>
+   		</head>
+        <body>
+           <table id="conTab1" >
+               <thead id="thead">
+                <tr>
+                    <th>CheckBox</th>
+                    <th>Account Name</th>          <!-- Table Headings -->
+                    <th>Account Rating</th>
+                    <th>Account Revenue</th>
+                </tr>
+               </thead>
+               <tbody>
+                   <apex:repeat value="{!acclist}" var="acc" >
+                       <tr>
+                           <td>
+                               <apex:inputCheckbox >
+                                   <apex:actionSupport event="onclick" action="{!findSelectRecord}" reRender="conTab2,conTab21">
+                                   		<apex:param name="accId" value="{!acc.id}" assignTo="{!accId}"/>
+                                   </apex:actionSupport>
+                               </apex:inputCheckbox>	
+                           </td>
+                           <td>{!acc.name}</td>          <!-- Table Body -->
+                           <td>{!acc.Rating}</td>
+                           <td>{!acc.AnnualRevenue}</td>
+                       </tr>
+                   </apex:repeat>
+               </tbody>
+           </table>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <table id="conTab21" >
+               <thead id="thead">
+                <tr>
+                    <th>Account Name</th>          <!-- Table Headings -->
+                    <th>Account Rating</th>
+                    <th>Account Revenue</th>
+                </tr>
+               </thead>
+               <tbody>
+                   <apex:repeat value="{!acclistFilter}" var="accFilter" id="conTab2">
+                       <tr>
+                           <td>{!accFilter.name}</td>          <!-- Table Body -->
+                           <td>{!accFilter.Rating}</td>
+                           <td>{!accFilter.AnnualRevenue}</td>
+                       </tr>
+                   </apex:repeat>
+               </tbody>
+           </table>
+   		</body>
+    </apex:form>
+</apex:page>

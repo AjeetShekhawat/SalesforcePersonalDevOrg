@@ -1,0 +1,50 @@
+<apex:page controller="RollonAccountUsingVfPage">
+	<apex:form >
+    	<apex:tabPanel >
+        	<apex:tab label="sum" switchType="client" >
+                <apex:inputText value="{!number1}">Number1</apex:inputText> <br/>
+                <apex:inputText value="{!number2}">Number2</apex:inputText> <br/>
+                <apex:outputText value="{!result}" rendered="true">Result</apex:outputText> <br/>
+                <apex:commandButton value="Sum" action="{!calculateSum}"/>
+            </apex:tab>
+            <apex:tab label="sub" switchType="client">
+            	<apex:inputText value="{!number1}">Number1</apex:inputText> <br/>
+                <apex:inputText value="{!number2}">Number2</apex:inputText> <br/>
+                <apex:outputText value="{!result}" rendered="true">Result</apex:outputText> <br/>
+                <apex:commandButton value="subtract" action="{!calculateSub}"/>
+            </apex:tab>
+        </apex:tabPanel>
+    </apex:form>
+</apex:page>
+
+<!--
+<apex:page controller="RollonAccountUsingVfPage">
+	<apex:form>
+        <apex:inputText value="{!number1}">Number1</apex:inputText>
+        <apex:inputText value="{!number2}">Number2</apex:inputText>
+    	<apex:panelBar>
+        	<apex:panelBarItem label="sum" name="{!calculateSum}" rendered="true" 
+                               onenter="alert('Enter in to sum');"
+                               onleave="alert('Leave sub');">{!result}</apex:panelBarItem>
+            <apex:panelBarItem label="sub" name="sub" rendered="true"
+                               onenter="alert('Enter in to sub');"
+                               onleave="alert('Leave sub');">item 2</apex:panelBarItem>
+        </apex:panelBar>
+    </apex:form>
+</apex:page> -->
+<!--
+<apex:page controller="RollonAccountUsingVfPage" showHeader="false" sidebar="false">
+	<apex:form >
+    	<apex:pageBlock>
+        	<apex:pageBlockSection collapsible="true" title="Roll up summary">
+                <apex:inputText value="{!number1}">Number1</apex:inputText>
+                <apex:inputText value="{!number2}">Number2</apex:inputText>
+                <apex:outputText value="{!result}" rendered="true">Result</apex:outputText> 
+            </apex:pageBlockSection>
+            <apex:commandButton value="sum" action="{!calculateSum}"/>
+            <apex:commandButton value="subtract" action="{!calculateSub}"/>
+            <apex:commandButton value="multiplication" action="{!calculateMult}"/>
+            <apex:commandButton value="Division" action="{!calculateDiv}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page> -->

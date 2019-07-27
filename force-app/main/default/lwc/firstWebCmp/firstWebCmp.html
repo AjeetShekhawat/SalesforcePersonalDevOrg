@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+        <lightning if:true={name}>
+            <p>
+                if block
+            </p>
+        </lightning>
+
+        <lightning if:false={name}>
+            <p>
+                else block
+            </p>
+        </lightning>
+    </lightning-card>
+    <lightning-card>
+        <lightning-formatted-text value={name}></lightning-formatted-text> &nbsp;
+        <lightning-formatted-text value={userId}></lightning-formatted-text>&nbsp;
+        {showName}
+    </lightning-card>
+    <lightning-button label="Call Js" onclick={callJsMethod}></lightning-button>
+
+</template>

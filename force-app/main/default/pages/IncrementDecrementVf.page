@@ -1,0 +1,14 @@
+<apex:page controller="IncrementDecrement">
+	<h2>
+        Click on these check boxes to see number :
+    </h2> <br/>
+    <apex:form >
+    	<apex:inputCheckbox rendered="true">Increase
+        	<apex:actionSupport event="onmouseout" action="{!incr}" reRender="a" />
+        </apex:inputCheckbox><br/>
+        <apex:inputCheckbox rendered="true">Decrease
+        	<apex:actionSupport event="onmouseout" action="{!decr}" reRender="a" />
+        </apex:inputCheckbox><br/>
+        <apex:outputText value="{!inc}" rendered="true" id="a">Number is : </apex:outputText>
+    </apex:form>
+</apex:page>

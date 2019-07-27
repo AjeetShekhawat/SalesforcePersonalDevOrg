@@ -1,0 +1,24 @@
+<apex:page controller="Custom_Picklist" tabStyle="Contact">
+    <apex:form >
+        <apex:pageBlock >
+            <h1>Salesforce</h1>
+            <apex:selectList size="1" value="{!count1}">
+                <apex:selectOptions value="{!numberOfQuestions }"/>
+                <apex:actionSupport event="onchange" action="{!showQuestions}" reRender="abcd">
+                    <apex:param value="Salesforce" assignTo="{!Domain}" />
+                </apex:actionSupport>
+            </apex:selectList>
+            
+            <h1>PHP</h1>
+            <apex:selectList size="1" value="{!count2}">
+                <apex:selectOptions value="{!numberOfQuestions }"/>
+                <apex:actionSupport event="onchange" action="{!showQuestions}" reRender="abcd">
+                    <apex:param value="PHP" assignTo="{!Domain}" />
+                </apex:actionSupport>
+            </apex:selectList>
+            <apex:pageBlockSection title="{!message}" id="abcd">
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

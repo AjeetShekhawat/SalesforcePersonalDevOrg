@@ -1,0 +1,11 @@
+<aura:component controller="OneTimeServerCall" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+    
+    <aura:attribute name="message" type="String"/>
+    
+    <!-- Error handling in lightning -->
+    <lightning:button label="Show Error" onclick="{!c.showError}" />
+    <br/>
+    Error Message :<ui:outputText value="{!v.message}"/>
+	
+</aura:component>

@@ -1,0 +1,16 @@
+<apex:page controller="TestProgram1" sidebar="false"  >
+    <apex:form >
+         <apex:commandButton reRender="ab" value="Delete" action="{!doSelectedRecord}" />
+    	 <apex:pageBlock id="a">
+                <apex:pageBlockTable value="{!accList}" var="abc" id="ab">	
+                    <apex:column >
+                        <apex:inputCheckbox value="{!abc.check}"/>
+                    </apex:column>    
+                    <apex:column value="{!abc.acct.Name}"/>
+                    <apex:column value="{!abc.acct.Industry}"/>
+                    <apex:column value="{!abc.acct.Phone}"/>
+                    <apex:column value="{!abc.acct.Type}"/>
+            </apex:pageBlockTable>  
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,45 @@
+<!-- Add these component to an 'Hire From' record Lightning page -->
+
+<!-- Example 1 -->
+
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="recordId" type="String" />
+    <lightning:card title="Display, Create, or Edit Records">
+        <lightning:recordForm recordId="{!v.recordId}" 
+                              objectApiName="Hire_Form__c"
+                              fields="Name" />
+    </lightning:card>
+</aura:component>
+
+
+<!-- Example 2 
+
+<aura:component implements="flexipage:availableForRecordHome, force:hasRecordId">
+    <lightning:card title="Display, Create, or Edit Records">
+        <lightning:recordEditForm recordId="{!v.recordId}"
+                                  objectApiName="Hire_Form__c">
+            <lightning:messages />
+            <lightning:inputField fieldName="Name" />
+            <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+        </lightning:recordEditForm>
+        <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Hire_Form__c">
+            <lightning:messages />
+            <lightning:outputField fieldName="Name" />
+        </lightning:recordViewForm>
+    </lightning:card>
+</aura:component>
+
+-->
+
+<!-- Example 3 
+
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+
+    <aura:attribute name="record" type="Object" description="The record object to be displayed" />
+    <aura:attribute name="simpleRecord" type="Object" description="A simplified view record object to be displayed" />
+    <aura:attribute name="recordError" type="String" description="An error message bound to force:recordData" />
+    <force:recordData aura:id="record" layoutType="FULL" recordId="{!v.recordId}" targetError="{!v.recordError}"
+        targetRecord="{!v.record}" targetFields="{!v.simpleRecord}" mode="VIEW" />
+</aura:component>
+
+-->

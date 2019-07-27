@@ -1,0 +1,7 @@
+<apex:page >
+    <apex:form >
+        <apex:image value="d/pic/s.jpg" alt="Master" height="150" width="150"/>
+        <apex:image value="{!$Resource.MasterBlasterImage}" alt="Master" height="150" width="150"/>
+        <apex:image url="{!urlfor($Resource.MasterBlasterImage, "s.jpg")}" alt="Master" height="150" width="150"/>
+    </apex:form>
+</apex:page>

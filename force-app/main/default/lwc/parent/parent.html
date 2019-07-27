@@ -1,0 +1,25 @@
+<template>
+    <style>
+        table tr td{
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+    
+    <table style="background: #e6efe2;">
+        <tr>
+            <td>
+                <b>Passing value to reactive public property</b>
+                <c-child reactive-public-property="Hi from parent - 1"></c-child>
+            </td>
+            <td>
+                <b>Passing value to reactive private property</b>
+                <c-child reactive-private-property="Hi from parent - 2"></c-child>
+            </td>
+            <td>
+                <b>Passing value to non-reactive private property</b>
+                <c-child non-reactive-private-property="Hi from parent - 3"></c-child>
+            </td>
+        </tr>
+    </table>
+</template>

@@ -1,0 +1,21 @@
+<aura:component controller="OneTimeServerCall" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="accList" type="Account[]" />
+    <aura:attribute name="conList" type="Contact[]" />
+    <aura:attribute name="selectedLookUpEnquiry" type= "sObject" />
+    <aura:attribute name="OldEnqNo" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    Account List :
+    <aura:iteration items="{!v.accList}" var="acc" >
+    	<option>{!acc.Name}</option>
+    </aura:iteration><br/>
+    Contact List :
+    <aura:iteration items="{!v.conList}" var="con" >
+    	<option>{!con.Name}</option>
+    </aura:iteration>
+    <lightning:button label="CallHelper" onclick="{!c.CallController}" />
+    <lightning:icon iconName="standard:related_list" alternativeText="Approved" />
+    <br/><br/>
+    Enquiry <br/> <c:customLookup objectAPIName="Enquiry__c" IconName ="standard:Account" label="Enquiry"  selectedRecord="{!v.selectedLookUpEnquiry}" SearchKeyWord="{!v.OldEnqNo}" />
+    
+    
+</aura:component>

@@ -1,0 +1,41 @@
+<apex:page controller="MockScenario_Delete">
+     <apex:form id="frm" > 
+     
+  Choose Industry Type : <apex:selectList size="1" value="{!selectedValue}">
+         <apex:selectOptions value="{!picklistValue}"/>
+             <apex:actionSupport event="onchange" reRender="pickId, accountId" />             
+         </apex:selectList>  <br/><br/><br/>
+         <apex:outputText value="{!selectedValue}" id="pickId" />
+         <br/>
+         <br/>
+         <br/><br/>
+   		<head>
+        </head>
+        <body>
+            <table>
+                <thead>
+                   <tr>
+                       <th>Account Name</th>
+                       <th>Industry</th>
+                       <th>Delete Operation</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <apex:outputPanel id="accountId">
+                    	<apex:repeat value="{!accList}" var="acc">
+                    	<tr>
+                            <td>{!acc.name}</td>  
+                            <td>{!acc.industry}</td> 
+                            <td id="tId"> 
+                            	<apex:commandButton value="delete" action="{!deleteData}" reRender="tId" style="color:#FF0000;">
+                                	<apex:param name="rowId" value="{!acc.Id}" assignTo="{!AcccId}"/>
+                                </apex:commandButton>
+                            </td>
+                        </tr>
+                    </apex:repeat>   
+                    </apex:outputPanel>
+                </tbody>
+        	</table>
+        </body>   
+    </apex:form>
+</apex:page>

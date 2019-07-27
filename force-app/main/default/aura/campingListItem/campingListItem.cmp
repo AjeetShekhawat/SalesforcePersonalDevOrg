@@ -1,0 +1,66 @@
+<!--  campingListItem  
+<aura:component controller="CampingItemFetch" implements="force:appHostable,flexipage:availableForRecordHome,flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                			access="global">
+    <aura:attribute name="item" type="Camping_Item__c" required="true" default="{'SobjectType':'Camping_Item__c'}"/> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <p>
+    	Name : {!v.item[0].Name}
+    </p>
+   	
+    <p>
+    	Price :
+    	<lightning:formattedNumber value="{!v.item[0].Price__c}" style="currency"/>
+    </p>
+    
+    <p>
+    	Quantity :
+    	<lightning:formattedNumber value="{!v.item[0].Quantity__c}" />
+    </p>
+    
+    <p>
+        <lightning:input type="toggle"                            
+                         label="Packed"                           
+                         name="Packed"                         
+                         checked="{!v.item[0].Packed__c}" />
+     </p> 
+    <lightning:button variant="brand" label="Submit" onclick="{!c.packItem}"  />
+    
+</aura:component>
+-->
+<!--
+<aura:component >
+    <aura:attribute name="item" type="Camping_Item__c"/>
+    
+    Name:
+    <ui:outputText value="{!v.item.Name}"/>
+    
+    Price:
+    <ui:outputCurrency value="{!v.item.Price__c}"/>
+    
+    Quantity:
+    <ui:outputNumber value="{!v.item.Quantity__c}"/>
+    
+    Packed:
+    <ui:outputCheckbox value="{!v.item.Packed__c}"/>
+    
+</aura:component>
+-->
+<aura:component >
+    <aura:attribute name="item" type="Camping_Item__c" required="true"/>
+    <p>Name:
+        <lightning:formattedText value="{!v.item.Name}" />
+    </p>
+    <p>Price:
+        <lightning:formattedNumber value="{!v.item.Price__c}" style="currency"/>
+    </p>
+    <p>Quantity:
+        <lightning:formattedNumber value="{!v.item.Quantity__c}" style="Number"/>
+    </p>
+    <p>Packed:
+        <lightning:input type="toggle" label="Packed?" checked="{!v.item.Packed__c}"/>
+    </p>
+    <div>
+        <lightning:button label="Packed!" onClick="{!c.packItem}"/>
+    </div>
+</aura:component>

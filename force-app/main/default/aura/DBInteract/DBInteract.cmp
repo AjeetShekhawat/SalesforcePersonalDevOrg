@@ -1,0 +1,27 @@
+<aura:component controller="AccountController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+	<aura:attribute name="accounts" type="Account[]" />
+    <aura:attribute name="pickListValueSet" type="String[]" />
+    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->
+    <lightning:input label="Name1" name="myname" type = "text" value="{!v.accounts[0].Name}"/>
+    <lightning:input label="Phone1" name="myname" type = "number" value="{!v.accounts[0].Phone}"/>
+   
+    <!--lightning:select name="mySelect" value="{!v.accounts[0].Website}"  >
+                           <option>Choose Priority</option>
+                            <aura:iteration items="{!v.pickListValueSet}" var="objBP" >
+                                
+                                <option>1</option>
+                            </aura:iteration>
+        <option>1</option>
+    </lightning:select-->
+    <lightning:select name="mySelect1" label="Please choose unique priority" value="{!v.accounts[0].Website}" title="Please choose unique priority" >
+                            <option>Choose Priority</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>  
+                        </lightning:select>
+    <lightning:button variant="success" label="Success" title="Success" onclick="{!c.handleClick }"/>
+</aura:component>

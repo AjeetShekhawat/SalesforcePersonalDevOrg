@@ -1,0 +1,35 @@
+<apex:page controller="AccountRecordsInTableController" sidebar="false">
+	<apex:form >
+        <apex:inputText value="{!search}" >Enter any Character
+            <apex:commandButton value="Search Record"><apex:actionSupport event="onClick" reRender="conTab1" /></apex:commandButton>
+        </apex:inputText>
+        <br/>
+            <br/>
+            <br/>
+            <br/>
+        <apex:pageBlock >
+                <apex:pageBlockTable value="{!accList}" var="acc" id="conTab1">	
+                <apex:column id="abc">
+                    <apex:inputCheckbox >
+                        <apex:actionSupport event="onclick" action="{!findSelectRecord}" reRender="conTab2" status="supp">
+                            <apex:param name="accId" value="{!acc.id}" assignTo="{!accId}"/>        
+                        </apex:actionSupport>
+                        <apex:actionStatus id="supp">
+                            <apex:facet name="start" >
+                              <img src="/img/loading.gif" align="middle"/>                    
+                            </apex:facet>
+            			</apex:actionStatus>
+                    </apex:inputCheckbox>	
+                </apex:column>    
+                <apex:column value="{!acc.name}"/>
+                <apex:column value="{!acc.Rating}"/>
+                <apex:column value="{!acc.AnnualRevenue}"/>
+            </apex:pageBlockTable> 
+            <apex:pageBlockTable value="{!acclistFilter}" var="accFilter" id="conTab2">                
+                    <apex:column value="{!accFilter.name}"/>
+                    <apex:column value="{!accFilter.Rating}"/>
+                    <apex:column value="{!accFilter.AnnualRevenue}"/>
+                </apex:pageBlockTable> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

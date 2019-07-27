@@ -1,0 +1,16 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false" tabStyle="account">
+    <apex:form >
+    	<apex:pageBlock helpTitle="Google" helpUrl="https://www.google.com/">
+            <apex:pageblockSection title="Account Information" collapsible="false">
+                <apex:inputField value="{!account.name}"/>
+                <apex:inputField value="{!account.Rating}"/>
+                <apex:inputField value="{!account.Type}"/>
+                <apex:inputField value="{!account.Website}"/>
+                <apex:inputField value="{!account.Min__c}"/>
+                <apex:inputField value="{!account.Max__c}"/>
+                <apex:inputField value="{!account.Count__c}"/>
+            </apex:pageblockSection>  
+            <apex:commandButton value="save" action="{!save}"/>
+    	</apex:pageBlock>
+    </apex:form>
+</apex:page>

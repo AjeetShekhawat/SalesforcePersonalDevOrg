@@ -1,0 +1,33 @@
+<apex:page standardController="Account" recordSetVar="accounts">
+    <apex:form >
+    	<apex:pageBlock >
+            <!-- inline edit support for all records
+    		<apex:pageBlockTable value="{!accounts}" var="acc">
+            	<apex:column value="{!acc.name}"/>
+                <apex:column value="{!acc.Phone}"/>
+                <apex:column value="{!acc.Rating}"/>
+                <apex:column value="{!acc.Type}"/>
+                <apex:inlineEditSupport />
+            </apex:pageBlockTable> -->
+            <!-- inline edit support on particular record -->
+            <apex:pageBlockTable value="{!accounts}" var="acc" rows="10">
+                <apex:column headerValue="Account Name">
+                    <apex:outputField value="{!acc.name}">
+                    	<apex:inlineEditSupport />
+                    </apex:outputField>
+                </apex:column>
+                <apex:column value="{!acc.Phone}"/>
+                <apex:column value="{!acc.Rating}"/>
+                <apex:column value="{!acc.Type}"/>
+            </apex:pageBlockTable>
+            
+            <!-- check difference with and without pageBlockButtons -->
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Previous" action="{!previous}"/>
+                <apex:commandButton value="Next" action="{!next}"/>
+                <apex:commandButton value="First Page" action="{!first}"/>
+                <apex:commandButton value="Last Page" action="{!Last}" />
+            </apex:pageBlockButtons>
+    	</apex:pageBlock>
+    </apex:form>
+</apex:page>

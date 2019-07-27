@@ -1,0 +1,47 @@
+<apex:page controller="UseofVariableAttributeWithJqueryClass">
+	<apex:form id="repeatId1">
+    	<head>
+        	<apex:includeScript value="//code.jquery.com/jquery-3.3.1.js"/> 
+   			<apex:includeScript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"/>         <!-- Including CDN-->
+       		<apex:styleSheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+            <script>
+                j$ = jQuery.noConflict();                     //To avoid Conflict
+                j$(document).ready(function(){      
+                j$('[id$="myTable"]').DataTable();             //Jquery function for styling the table
+                } );
+   			</script>
+        
+    </head>
+    <body>
+        <table id="myTable">
+            <thead>
+            	<tr>
+                    <th>S.No</th>
+                	<th>Name</th>
+                    <th>AnnualRevenue</th>
+                    <th>Industry</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:variable value="{!0}" var="rowNum"/>
+            	<apex:repeat value="{!accounts}" var="acc" id="repeatId">
+                	<tr>
+                        <td>{!rowNum}</td>    
+                        <td>{!acc.Name}</td>
+                        <td>{!acc.AnnualRevenue}</td>
+                        <td>{!acc.Industry}</td>
+                        <td>{!acc.Phone}</td>
+                        <td>
+                            <apex:commandButton value="Delete" reRender="repeatId" action="{!deleteRecord}" style="color:red">
+                            	<apex:param name="deleteRow" value="{!rowNum}" assignTo="{!deleteRow}"/>
+                            </apex:commandButton>
+                        </td>
+                        <apex:variable value="{!rowNum+1}" var="rowNum"/>    
+                	</tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+    </body>
+    </apex:form>
+</apex:page>
