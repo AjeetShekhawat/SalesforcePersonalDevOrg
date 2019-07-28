@@ -3,77 +3,77 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/fullcalendar": [
-                "../staticresources/fullcalendar/fullcalendar/fullcalendar.js"
-            ],
-            "c/child": [
-                "child/child.js"
-            ],
-            "c/firstWebCmp": [
-                "firstWebCmp/firstWebCmp.js"
-            ],
-            "c/helloWorld": [
-                "helloWorld/helloWorld.js"
-            ],
-            "c/showToastMessage": [
-                "showToastMessage/showToastMessage.js"
-            ],
-            "c/pageReference": [
-                "pageReference/pageReference.js"
-            ],
-            "c/getUiListDemo": [
-                "getUiListDemo/getUiListDemo.js"
-            ],
-            "c/lwcEventChild": [
-                "lwcEventChild/lwcEventChild.js"
-            ],
-            "c/dualListBoxLWCDemo": [
-                "dualListBoxLWCDemo/dualListBoxLWCDemo.js"
-            ],
-            "c/listofObject": [
-                "listofObject/listofObject.js"
-            ],
-            "c/designAttributes": [
-                "designAttributes/designAttributes.js"
+            "c/accountInfoDisplay": [
+                "accountInfoDisplay/accountInfoDisplay.js"
             ],
             "c/accountInsert": [
                 "accountInsert/accountInsert.js"
             ],
-            "c/zomato": [
-                "zomato/zomato.js"
+            "c/child": [
+                "child/child.js"
             ],
-            "c/openFilesLwc": [
-                "openFilesLwc/openFilesLwc.js"
-            ],
-            "c/lwcEventParent": [
-                "lwcEventParent/lwcEventParent.js"
-            ],
-            "c/doInitMethod": [
-                "doInitMethod/doInitMethod.js"
-            ],
-            "c/accountInfoDisplay": [
-                "accountInfoDisplay/accountInfoDisplay.js"
-            ],
-            "c/picklistValuesDemo": [
-                "picklistValuesDemo/picklistValuesDemo.js"
-            ],
-            "c/utilsJs": [
-                "utilsJs/utilsJs.js"
-            ],
-            "c/getPicklistValuesByRecordType": [
-                "getPicklistValuesByRecordType/getPicklistValuesByRecordType.js"
-            ],
-            "c/helloTest": [
-                "helloTest/helloTest.js"
+            "c/designAttributes": [
+                "designAttributes/designAttributes.js"
             ],
             "c/displayRecordUsingLds": [
                 "displayRecordUsingLds/displayRecordUsingLds.js"
             ],
+            "c/doInitMethod": [
+                "doInitMethod/doInitMethod.js"
+            ],
+            "c/dualListBoxLWCDemo": [
+                "dualListBoxLWCDemo/dualListBoxLWCDemo.js"
+            ],
+            "c/firstWebCmp": [
+                "firstWebCmp/firstWebCmp.js"
+            ],
+            "c/getPicklistValuesByRecordType": [
+                "getPicklistValuesByRecordType/getPicklistValuesByRecordType.js"
+            ],
+            "c/getUiListDemo": [
+                "getUiListDemo/getUiListDemo.js"
+            ],
+            "c/helloTest": [
+                "helloTest/helloTest.js"
+            ],
+            "c/helloWorld": [
+                "helloWorld/helloWorld.js"
+            ],
+            "c/listofObject": [
+                "listofObject/listofObject.js"
+            ],
+            "c/lwcEventChild": [
+                "lwcEventChild/lwcEventChild.js"
+            ],
+            "c/lwcEventParent": [
+                "lwcEventParent/lwcEventParent.js"
+            ],
+            "c/openFilesLwc": [
+                "openFilesLwc/openFilesLwc.js"
+            ],
+            "c/pageReference": [
+                "pageReference/pageReference.js"
+            ],
             "c/parent": [
                 "parent/parent.js"
             ],
+            "c/picklistValuesDemo": [
+                "picklistValuesDemo/picklistValuesDemo.js"
+            ],
+            "c/showToastMessage": [
+                "showToastMessage/showToastMessage.js"
+            ],
+            "c/utilsJs": [
+                "utilsJs/utilsJs.js"
+            ],
+            "c/zomato": [
+                "zomato/zomato.js"
+            ],
             "c/zomatoDisplayRestaurants": [
                 "zomatoDisplayRestaurants/zomatoDisplayRestaurants.js"
+            ],
+            "c/fullcalendar": [
+                "../staticresources/fullcalendar/fullcalendar/fullcalendar.js"
             ]
         }
     },
