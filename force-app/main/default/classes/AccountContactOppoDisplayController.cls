@@ -5,7 +5,7 @@ public class AccountContactOppoDisplayController {
         displayInfo();
     }
     public void displayInfo() {
-        
+        System.debug('Git testing');
         for(Account acco : [select name from Account]) {
             WrapperforDisplay wr = new WrapperforDisplay();
             wr.acc = acco;
