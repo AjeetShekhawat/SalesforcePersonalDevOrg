@@ -1,0 +1,15 @@
+<aura:component implements="lightning:availableForFlowScreens,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="public">
+    <aura:attribute name="buttonLabel" type="String"/>
+    <lightning:button aura:id="button1" label="Button 1"/>
+    {!v.buttonLabel}
+    <lightning:button label="Get Label" onclick="{!c.getLabel}"/>
+
+
+    <aura:set attribute="body">
+        <!--START BODY-->
+        <div>Body part</div>
+        <lightning:button label="Push Me" onclick="{!c.doSomething}"/>
+        <!--END BODY-->
+    </aura:set>
+
+</aura:component>

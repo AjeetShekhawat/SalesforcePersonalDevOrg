@@ -1,27 +1,30 @@
 <!-- Add these component to an 'Hire From' record Lightning page -->
 
-<!-- Example 1 -->
+<!-- Example 1
 
 <aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
     <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="fieldsName" type="String[]" default="['Name', 'Decription__c']"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <lightning:card title="Display, Create, or Edit Records">
         <lightning:recordForm recordId="{!v.recordId}" 
                               objectApiName="Hire_Form__c"
-                              fields="Name" />
+                              fields="{!v.fieldsName}" />
     </lightning:card>
 </aura:component>
+-->
 
+<!-- Example 2 -->
 
-<!-- Example 2 
-
-<aura:component implements="flexipage:availableForRecordHome, force:hasRecordId">
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
     <lightning:card title="Display, Create, or Edit Records">
-        <lightning:recordEditForm recordId="{!v.recordId}"
-                                  objectApiName="Hire_Form__c">
+        <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Hire_Form__c">
             <lightning:messages />
             <lightning:inputField fieldName="Name" />
-            <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+            <lightning:inputField fieldName="Decription__c" />
+            <lightning:button class="slds-m-top_small" type="submit" label="Update Record" />
         </lightning:recordEditForm>
+
         <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Hire_Form__c">
             <lightning:messages />
             <lightning:outputField fieldName="Name" />
@@ -29,7 +32,7 @@
     </lightning:card>
 </aura:component>
 
--->
+
 
 <!-- Example 3 
 

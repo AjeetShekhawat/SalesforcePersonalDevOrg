@@ -9,6 +9,9 @@
             "c/accountInsert": [
                 "accountInsert/accountInsert.js"
             ],
+            "c/bikeCard": [
+                "bikeCard/bikeCard.js"
+            ],
             "c/child": [
                 "child/child.js"
             ],
@@ -60,6 +63,9 @@
             "c/picklistValuesDemo": [
                 "picklistValuesDemo/picklistValuesDemo.js"
             ],
+            "c/selector": [
+                "selector/selector.js"
+            ],
             "c/showToastMessage": [
                 "showToastMessage/showToastMessage.js"
             ],
@@ -74,6 +80,9 @@
             ],
             "c/fullcalendar": [
                 "../staticresources/fullcalendar/fullcalendar/fullcalendar.js"
+            ],
+            "c/lWCCurrentUserIdDemo": [
+                "lWCCurrentUserIdDemo/lWCCurrentUserIdDemo.js"
             ]
         }
     },
