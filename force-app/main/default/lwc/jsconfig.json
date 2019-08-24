@@ -42,6 +42,9 @@
             "c/helloWorld": [
                 "helloWorld/helloWorld.js"
             ],
+            "c/lWCCurrentUserIdDemo": [
+                "lWCCurrentUserIdDemo/lWCCurrentUserIdDemo.js"
+            ],
             "c/listofObject": [
                 "listofObject/listofObject.js"
             ],
@@ -80,9 +83,6 @@
             ],
             "c/fullcalendar": [
                 "../staticresources/fullcalendar/fullcalendar/fullcalendar.js"
-            ],
-            "c/lWCCurrentUserIdDemo": [
-                "lWCCurrentUserIdDemo/lWCCurrentUserIdDemo.js"
             ]
         }
     },

@@ -1,0 +1,20 @@
+<!-- Lightnin component to take multiple inputs in a single list in aura iteration -->
+<!-- RepeatingInputs component-->
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global">
+    <aura:attribute name="fileShares" type="List" default="[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:iteration items="{!v.fileShares}" var="fileShare" indexVar="ivar">
+        <div class="fileSharesItem">
+            <lightning:input aura:id="{!fileShare.id}" value="{!fileShare.value}" label="{!fileShare.label}"
+                class="fileShares" />
+            <a href="#" onclick="{!c.removeShareHandler}" data-idtoremove="{!fileShare.id}" data-index="{!ivar}"
+                class="removeShare">-</a>
+        </div>
+        
+    </aura:iteration>
+    <a href="#" onclick="{!c.addMoreShareHandler}" >+ More</a>
+
+</aura:component>

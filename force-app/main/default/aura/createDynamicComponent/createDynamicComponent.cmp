@@ -1,0 +1,24 @@
+<!-- Lightnig component to create dynamic component like button, input etc -->
+<!--c:createComponent-->
+<!--
+
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                            access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <p>Dynamically created button</p>
+    {!v.body}
+</aura:component>
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                            access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInitDynamic}"/>
+    <aura:attribute name="dynamicButtonElement" type="aura.Component[]" />
+    <aura:attribute name="dynamicButtonElement2" type="aura.Component[]" />
+    
+    First Button :
+    {!v.dynamicButtonElement}
+    
+    Second Button :
+    {!v.dynamicButtonElement2}
+</aura:component>
