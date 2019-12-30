@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title='Dynamic Row Demo'>
+        <template for:each={dynamicRowArray} for:item='rowInput' for:index='indexValue'>
+            <lightning-input label="Name" value={rowInput.Name} onchange={handleNameChange} key={rowInput.Name}></lightning-input>
+            <lightning-icon icon-name="utility:add" alternative-text="Approved" key={rowInput.Name} onclick={addRow}></lightning-icon>&nbsp;&nbsp;
+            <lightning-icon icon-name="utility:dash" alternative-text="Connected" key={rowInput.Name} onclick={deleteRow}></lightning-icon>
+        </template>
+    </lightning-card>
+</template>

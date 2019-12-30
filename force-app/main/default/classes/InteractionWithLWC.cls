@@ -23,4 +23,11 @@ public with sharing class InteractionWithLWC {
         return [SELECT Id, Name FROM Account WHERE Name like : key LIMIT 5];
     }
 
+    @AuraEnabled
+    public static Account createAccount(Account acc) {
+        system.debug('acc'+acc);
+        insert acc;
+        return acc;
+    }
+
 }

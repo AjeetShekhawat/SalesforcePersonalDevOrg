@@ -6,7 +6,7 @@
  * Description : Count total Contact and show on Account field                      
 */ 
 public class TotalContactCount {
-    public static void contactCount(List<Contact> conListFromTrigger) { // Contact list from Trigger
+    public static String contactCount(List<Contact> conListFromTrigger) { // Contact list from Trigger
         LIST<Account> queryAccList = new LIST<Account>(); // create Account list to hold query records
         LIST<Account> accListToUpdate = new LIST<Account>(); // create Account list to update account record.
         Map<ID, Integer> sumMap = new Map<ID, Integer>(); //define map
@@ -30,6 +30,6 @@ public class TotalContactCount {
         if(!accListToUpdate.isEmpty() && accListToUpdate.size()>0) { // null check
             update accListToUpdate; // updating account record
         }
-
+		return 'dfdf';
     }
 }

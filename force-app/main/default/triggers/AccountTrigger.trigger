@@ -14,7 +14,7 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
         //ContactFeeSumClass.feeSumOnAccount(Trigger.new);
      //   TekSlateClassScenario6.currencyPercentage(Trigger.new);
         //TekSlateClassScenario3.textFieldChange2(Trigger.new);
-       // TekSlateClassScenario7.method(Trigger.new, trigger.oldMap);
+        TekSlateClassScenario7.method(Trigger.new, trigger.oldMap);
        // TekSlateClassScenario2.duplicatePreventionOnUpdate(Trigger.new);
       //  TekSlateClassScenario2.aggregatePractice();
     }
@@ -27,16 +27,18 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
         
     }
     if(Trigger.isAfter && Trigger.isInsert) {
+      //  AntClass.antClassMethod(Trigger.new);
         //NewOpportunityBYTrigger.createOpportunity(Trigger.new);
         //CreateNewContactUsingTrigger.newContact();
       //  TekSlateClassScenario8.createCOntact(Trigger.new, trigger.old, trigger.oldMap, trigger.newMap);
        // TekSlateClassScenario8.createContact2(Trigger.new);
         //CreateNewContactUsingTrigger.newContact(Trigger.new);
-        //TekSlateClassScenario7.method(Trigger.new); 
+      //  TekSlateClassScenario7.method(Trigger.new); 
        // AmountDistribution.distributeAmount2(Trigger.new);
        
     }
     if(Trigger.isAfter && Trigger.isUpdate) {
+        TekSlateClassScenario7.methodAfter(Trigger.new); 
         //TekSlateClassScenario8.createCOntact(Trigger.new);
         //AccountOwnerChange.addTeamember(Trigger.old, Trigger.new);
         //TekSlateClassScenario7.method(Trigger.new); 
@@ -48,6 +50,6 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
     //	TekSlateClassScenario8.createCOntact(Trigger.new, trigger.old, trigger.oldMap, trigger.newMap);        
     }
     if(Trigger.isAfter && Trigger.isUndelete) {
-        TekSlateClassScenario8.createCOntact(Trigger.new, trigger.old, trigger.oldMap, trigger.newMap); 
+     //   TekSlateClassScenario8.createCOntact(Trigger.new, trigger.old, trigger.oldMap, trigger.newMap); 
     }
 }

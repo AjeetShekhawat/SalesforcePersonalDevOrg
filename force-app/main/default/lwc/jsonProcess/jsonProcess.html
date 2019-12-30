@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title='JSON Process'>
+        <lightning-input type='checkbox' label='Want Leave' value={leaveValue} 
+            onchange={handleChange} 
+            onmouseout={mouseOutEvent}>
+        </lightning-input>
+        Display Data : {jsonData.glossary.GlossDiv.GlossList.GlossEntry.GlossDef.GlossSeeAlso}
+    </br>
+        <template if:true={displayData} >
+            Hi This message is from lwc.
+        </template>
+    </br>
+        Selected Value - {selectVal} <br>
+    <template if:true={isSelectHot}>
+        Account Rating is Hot ...
+    </template>
+    <template if:true={isSelectWarm}>
+        Account Rating is Warm ...
+    </template>
+    <template if:true={isSelectCold}>
+        Account Rating is Cold ...
+    </template>
+    </lightning-card>
+</template>

@@ -1,6 +1,6 @@
 // 'Apex Integration Services' trailhead for superbadge
 @RestResource(urlMapping='/Accounts/*/contacts')
-global with sharing class AccountManager {
+global with sharing class AccountManagerApi {
     
    
     @HttpGet

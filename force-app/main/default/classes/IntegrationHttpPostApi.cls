@@ -1,12 +1,16 @@
 @RestResource(urlmapping='/MyhttpPostMethod2/*')
 global class IntegrationHttpPostApi {
     
+    
     @httpGet
-    global static Account fetchRecord() {
+    global static List<Account> fetchRecord() {
         RestRequest req = RestContext.request;
-        ID accontId = req.params.get('id');
+        System.debug('req is ' + req);
+        String accontId = req.params.get('id'); // 1st way to extract parameter value
+      //  String accountId = request.requestURI.substring(request.requestURI.lastIndexOf('/')+1); // 2nd way to extract URL value
+        System.debug('accontId ' + accontId + ' app type ' + req.headers.get('Accept') + ' method type ' + req.httpMethod);
         try {
-            Account acc = [select id, name from Account where id =: accontId limit 1];
+            List<Account> acc = [select id, name from Account where id =: accontId];
         	return acc;
         } catch(DmlException ex) {
             return null;
@@ -23,6 +27,7 @@ global class IntegrationHttpPostApi {
         System.debug('insertion successful');
         return acc.Id;
     }
+    
     @HttpPatch
     global static String updateRecord(String Name, String phone) {
         List<Account> accList = new List<Account>();
@@ -48,8 +53,12 @@ global class IntegrationHttpPostApi {
         System.debug('update successful');
         return 'deletion successfull';
     }
+
 }
 /*
 *   Workbench URL : /services/apexrest/MyhttpPostMethod
     MyhttpPostMethod : urlmapping name
+
+    Pass parameter in @HttpGet method:
+    /services/apexrest/MyhttpPostMethod2/?id=0017F00002D3mmtQAB
 */

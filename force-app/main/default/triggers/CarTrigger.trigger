@@ -17,7 +17,7 @@ trigger CarTrigger on Car__c (before Insert, before Update, before Delete, After
     }
     
     if(Trigger.isAfter && Trigger.isUpdate) {
-        TriggerDoubtPractice.TriggerDoubtPracticeMethod();
+     //   TriggerDoubtPractice.TriggerDoubtPracticeMethod();
     }
     
     if(Trigger.isAfter && Trigger.isDelete) {

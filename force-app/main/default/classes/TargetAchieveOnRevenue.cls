@@ -23,6 +23,10 @@ public class TargetAchieveOnRevenue {
             sum += allOppoRecord.Amount;
             if(sum > totalAmount) {        
                 System.debug('coming insdie my comparision loop');
+                System.debug('coming insdie my comparision loop 11 '+ Limits.getCpuTime());
+                System.debug('coming insdie my comparision loop 13 '+ Limits.getLimitCpuTime());
+                System.debug('coming insdie my comparision loop 14 '+ Limits.getHeapSize());
+                System.debug('coming insdie my comparision loop 15 '+ Limits.getLimitHeapSize());
                 Account accToUpdate = new Account();
                 accToUpdate.Id = oppAccountId;
                 accToUpdate.MergeInfo__c = allOppoRecord.Name;

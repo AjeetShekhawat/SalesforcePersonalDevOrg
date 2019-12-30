@@ -1,8 +1,8 @@
 <template>
     <lightning-card title="getUiListDemo" >
-        <template for:each={dummyVar} for:item="accList">
+        <template for:each={stateList} for:item="accList">
             <p key={accList.Id}>
-                {con.label} <br/>
+                {accList.label} <br/>
             </p>
         </template>
     </lightning-card>

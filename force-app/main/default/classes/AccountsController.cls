@@ -1,7 +1,12 @@
-public class AccountsController {
+public without sharing class AccountsController {
     @AuraEnabled
     public static List <Account> getAccounts() {
-        return [SELECT Id, name, industry, Type, NumberOfEmployees, TickerSymbol, Phone FROM Account ORDER BY createdDate ASC];
+        if (Schema.sObjectType.Account.fields.Type.isAccessible()) {
+            return [SELECT Id, name, Type, Industry, TickerSymbol, Phone FROM Account ORDER BY createdDate ASC];
+        } else {
+            return [SELECT Id, name, Type,Industry, TickerSymbol, Phone FROM Account ORDER BY createdDate ASC];
+        }
+        
     }
 
     @AuraEnabled

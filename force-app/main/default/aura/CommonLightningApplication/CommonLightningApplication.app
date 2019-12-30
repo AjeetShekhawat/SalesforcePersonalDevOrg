@@ -1,7 +1,7 @@
 <aura:application extends="force:slds">
     <!--c:JavaScriptUsageCompo/-->  
     <!--c:helperDemoComponent/--> 
-    <!--c:AccountData/--> 
+    <c:AccountData/> 
     <!--c:WrapperAccountList /-->
     <!--c:InternalCRM/-->
     <!--c:Dropdown/-->
@@ -12,7 +12,7 @@
     <!--c:AccountRefresh/-->
     <!--c:FieldNameChangeDynamically/-->
     <!-- c:Basic_Data_Table/-->
-    <c:camping/>
+    <!--c:camping/-->
     <!--c:campingListItem/ -->
     <!--c:ReduceServerTrip/-->
     <!-- c:CustomTableTCES/ -->
@@ -21,4 +21,7 @@
     <!--c:QRCode/-->
     <!--c:LightningInlineEditingTable /-->
     <!--c:NewTab/-->
+    <!--c:LightningCalendar/-->
+    <!--c:RepeatingInputs/-->
+    <!--c:OBjectFieldDownload/-->
 </aura:application>

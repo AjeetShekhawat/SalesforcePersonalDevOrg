@@ -23,5 +23,6 @@
                 </tr>
             </aura:iteration>
           </tbody>
-        </table>    
+        </table>   
+    <lightning:button label="Create Record" name="CreateRecord" onclick="{!c.createRecord}" />
 </aura:component>

@@ -16,7 +16,7 @@ trigger OpportunityTrigger on Opportunity(before insert, before update, before d
         //TargetAchieveOnRevenue.revenue(Trigger.new);
     }
     if(Trigger.isAfter && Trigger.isUpdate) {
-        //TargetAchieveOnRevenue.revenue(Trigger.new);
+        TargetAchieveOnRevenue.revenue(Trigger.new);
     }
     if(Trigger.isAfter && Trigger.isDelete) {
        

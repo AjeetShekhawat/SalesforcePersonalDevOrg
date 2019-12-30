@@ -3,6 +3,9 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
+            "c/accountFilterDemo": [
+                "accountFilterDemo/accountFilterDemo.js"
+            ],
             "c/accountInfoDisplay": [
                 "accountInfoDisplay/accountInfoDisplay.js"
             ],
@@ -27,6 +30,9 @@
             "c/dualListBoxLWCDemo": [
                 "dualListBoxLWCDemo/dualListBoxLWCDemo.js"
             ],
+            "c/dynamicRowLwc": [
+                "dynamicRowLwc/dynamicRowLwc.js"
+            ],
             "c/firstWebCmp": [
                 "firstWebCmp/firstWebCmp.js"
             ],
@@ -36,11 +42,17 @@
             "c/getUiListDemo": [
                 "getUiListDemo/getUiListDemo.js"
             ],
+            "c/getterFunction": [
+                "getterFunction/getterFunction.js"
+            ],
             "c/helloTest": [
                 "helloTest/helloTest.js"
             ],
             "c/helloWorld": [
                 "helloWorld/helloWorld.js"
+            ],
+            "c/jsonProcess": [
+                "jsonProcess/jsonProcess.js"
             ],
             "c/lWCCurrentUserIdDemo": [
                 "lWCCurrentUserIdDemo/lWCCurrentUserIdDemo.js"
@@ -71,6 +83,18 @@
             ],
             "c/showToastMessage": [
                 "showToastMessage/showToastMessage.js"
+            ],
+            "c/todoApp": [
+                "todoApp/todoApp.js"
+            ],
+            "c/todoItem": [
+                "todoItem/todoItem.js"
+            ],
+            "c/uiListAPI": [
+                "uiListAPI/uiListAPI.js"
+            ],
+            "c/uiRecordApiExample": [
+                "uiRecordApiExample/uiRecordApiExample.js"
             ],
             "c/utilsJs": [
                 "utilsJs/utilsJs.js"

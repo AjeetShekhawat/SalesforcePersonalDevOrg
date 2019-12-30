@@ -10,10 +10,17 @@ export default class HelloWorld extends LightningElement {
     changeHandler(event) {
         this.greeting = event.target.value;
         /* eslint-disable no-console */
+        // console.log('SalesforceDoc ', LANG);
+        // console.log('thickOfProduct ', thickOfProduct);
+        // console.log('TRAILHEAD_LOGO ', TRAILHEAD_LOGO);
+        // console.log('POSITION_OBJECT ', POSITION_OBJECT);
+        // console.log('NAME_FIELD ', NAME_FIELD);
+    } 
+    connectedCallback() {
         console.log('SalesforceDoc ', LANG);
         console.log('thickOfProduct ', thickOfProduct);
         console.log('TRAILHEAD_LOGO ', TRAILHEAD_LOGO);
         console.log('POSITION_OBJECT ', POSITION_OBJECT);
         console.log('NAME_FIELD ', NAME_FIELD);
-    } 
+    }
 }

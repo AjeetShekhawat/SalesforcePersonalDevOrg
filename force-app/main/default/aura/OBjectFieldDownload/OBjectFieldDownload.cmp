@@ -1,0 +1,11 @@
+<aura:component controller="ObjectFieldRetrievalController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="this" action="{!c.doInit}"/>
+    <aura:attribute name='objectList' type="list"/>
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="selectedObject" type="String" default=""/>
+    
+    <lightning:card title="Object Field Report">
+    <lightning:combobox name="progress" label="Object" value="{!v.selectedObject}" options="{! v.options }"/>
+        <lightning:button label="Download Field Report" onclick="{!c.handleChange}"/>
+    </lightning:card>
+</aura:component>

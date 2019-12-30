@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="passwordValue" type="string" />
+    <lightning:recordEditForm onload="{!c.handleLoad}"
+                              recordId="{!v.recordId}"
+                              objectApiName="Hire_Form__c">
+        <div class="slds-hide">
+            <lightning:inputField fieldName="Name"/>
+        </div>
+        
+        =========== Value is : {!v.passwordValue}
+    </lightning:recordEditForm>
+</aura:component>
