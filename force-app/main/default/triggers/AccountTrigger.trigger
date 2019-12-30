@@ -9,12 +9,13 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
         
     }
     if(Trigger.isBefore && Trigger.isUpdate) {
+      TekSlateClassScenario7.workflowFIeldUpdate(Trigger.new); 
         //TekSlateClassScenario11.changeOwnerName(Trigger.new);
       //  AccountOwnerChange.changeAccount(Trigger.old, Trigger.new);
         //ContactFeeSumClass.feeSumOnAccount(Trigger.new);
      //   TekSlateClassScenario6.currencyPercentage(Trigger.new);
         //TekSlateClassScenario3.textFieldChange2(Trigger.new);
-        TekSlateClassScenario7.method(Trigger.new, trigger.oldMap);
+      //  TekSlateClassScenario7.method(Trigger.new, trigger.oldMap);
        // TekSlateClassScenario2.duplicatePreventionOnUpdate(Trigger.new);
       //  TekSlateClassScenario2.aggregatePractice();
     }
@@ -38,7 +39,8 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
        
     }
     if(Trigger.isAfter && Trigger.isUpdate) {
-        TekSlateClassScenario7.methodAfter(Trigger.new); 
+      //  TekSlateClassScenario7.methodAfter(Trigger.new); 
+        
         //TekSlateClassScenario8.createCOntact(Trigger.new);
         //AccountOwnerChange.addTeamember(Trigger.old, Trigger.new);
         //TekSlateClassScenario7.method(Trigger.new); 

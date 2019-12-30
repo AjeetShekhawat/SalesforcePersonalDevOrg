@@ -16,7 +16,7 @@ trigger ContactTrigger on Contact (before insert, before update, before delete, 
         //PracticeClass.test(Trigger.old);
         //InsertContact.deleteRecords(Trigger.old);
         //ContactSum.findSum(Trigger.new);
-        DeleteContactError.deleteContactError(Trigger.old);      
+      //  DeleteContactError.deleteContactError(Trigger.old);      
     }
     if(Trigger.isAfter && Trigger.isInsert) {
         //ContactFeeSumClass.feeSum(Trigger.new);
@@ -46,7 +46,7 @@ trigger ContactTrigger on Contact (before insert, before update, before delete, 
         //InsertContact.updateRecords(Trigger.oldmap, Trigger.new);
         //PickListValueInDescriptionOfAccount.pickListValueUpdate(Trigger.old, Trigger.new);
         //ContactSum.findSum(Trigger.new);
-        TotalContactCount.contactCount(Trigger.new);
+     //   TotalContactCount.contactCount(Trigger.new);
         //ChangingAddressReflect.contactAddressChange(Trigger.new);
         //ContactMailSendValidate.sendMailMethod2(Trigger.oldMap, Trigger.new);
       //  AmountDistribution.distributeAmountUpdate(Trigger.new);

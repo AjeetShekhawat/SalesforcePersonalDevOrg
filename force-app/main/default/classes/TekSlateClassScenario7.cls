@@ -46,4 +46,10 @@ public class TekSlateClassScenario7 {
         List<Object> obj = (List<Object>) str.get('animals');
         System.debug(response.getBody());
     }   
+
+    public static void workflowFIeldUpdate(List<Account> accList) { 
+        for (Account acc : accList) {
+            acc.Count__c = 200;
+        }
+    } 
 }
