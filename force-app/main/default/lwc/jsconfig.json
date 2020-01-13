@@ -36,6 +36,9 @@
             "c/firstWebCmp": [
                 "firstWebCmp/firstWebCmp.js"
             ],
+            "c/formJsonCreate": [
+                "formJsonCreate/formJsonCreate.js"
+            ],
             "c/getPicklistValuesByRecordType": [
                 "getPicklistValuesByRecordType/getPicklistValuesByRecordType.js"
             ],

@@ -1,9 +1,11 @@
 <aura:component implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" controller="LightningDataTableController">
     <aura:attribute name="mydata" type="Object"/>
     <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="mycolumnsDemo" type="String"/>
  
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
+    ==========={!v.mycolumnsDemo}
     <lightning:datatable data="{! v.mydata }" 
         columns="{! v.mycolumns }" 
         keyField="Id"/>

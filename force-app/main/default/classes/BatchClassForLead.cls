@@ -14,12 +14,12 @@ global class BatchClassForLead implements Database.Batchable<Sobject>
     {
         List<Account> accList = new List<Account>();
         for (Account acc : scope) {
-            acc.Type = 'Customer';
+            acc.Type = 'Pending';
             accList.add(acc);
             System.debug('coming 111 ' + acc);
         }
        // update accList;
-        Database.update(accList, false);
+        Database.update(accList);
         for (Account acc : accList) {
             System.debug('coming ' + acc);
         }

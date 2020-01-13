@@ -1,0 +1,6 @@
+<apex:component controller="accountfiltercon">
+    
+    <apex:attribute name="favoriteColor1" type="String" description="What... is your favorite color?" default="Black"  />
+	<apex:variable var="v_favoriteColor1" value="{!IF(NOT(ISNULL(favoriteColor1)), favoriteColor1, 'No - Blue - ahh!')}" />
+    <apex:outputText value="{!v_favoriteColor1}"/>
+</apex:component>

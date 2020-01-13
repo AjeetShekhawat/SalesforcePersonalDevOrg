@@ -39,7 +39,6 @@ public class TekSlateClassScenario7 {
         request.setEndPoint(endpoint);
         // Set the HTTP verb to GET.
         request.setMethod('GET');
-    
         // Send the HTTP request and get the response.
         // The response is in JSON format.
         HttpResponse response = httpProtocol.send(request);

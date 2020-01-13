@@ -18,4 +18,86 @@ public without sharing class AccountsController {
     public static String doInit() {
         return 'Hi This is from Apex DoInit';
     }
+
+    @AuraEnabled
+    public static List<string> getAllObjectName() {
+        List<string> SObjectList = new List<string>();
+
+        for(Schema.SObjectType objTyp : Schema.getGlobalDescribe().Values()){
+        String name = objTyp.getDescribe().getName();
+        // Exclude all the unwanted Sobjects e.g. History, Share etc..
+
+            // if((!name.containsignorecase('history') && !name.containsignorecase('tag')&&
+            //     !name.containsignorecase('share') && !name.containsignorecase('feed')) || 
+            //     name.toLowerCase().right(3) ==  '__c') {      
+            //     SobjectList.add(name);
+            //     System.debug( 'Name : ' + name);
+            // }
+            if(name.toLowerCase().right(3) ==  '__c') {      
+                SobjectList.add(name);
+                System.debug( 'Name : ' + name);
+            }
+
+        }
+        return SobjectList;
+    }
+
+    @AuraEnabled
+    public static List<FieldInfo> getFieldsInfo(String objectName) {
+        System.debug('objectName ' + objectName);
+        List<FieldInfo> wrapperList = new List<FieldInfo>();
+        List<String> fieldsName = new List<String>();
+        Map<String,Schema.DescribeFieldResult> finalMap = new Map<String, Schema.DescribeFieldResult>();
+        SObjectType accountType = Schema.getGlobalDescribe().get(objectName);
+        Map<String,Schema.SObjectField> mfields = accountType.getDescribe().fields.getMap();
+        fieldsName.addAll(mfields.keyset());
+        for(String field : fieldsName){
+            // skip fields that are not part of the object
+            if (mfields.containsKey(field)) {
+                Schema.DescribeFieldResult dr = mfields.get(field).getDescribe();
+                // add the results to the map to be returned
+                finalMap.put(field, dr); 
+                System.debug('drrrrrr  ' + mfields.get(field).getDescribe().getLabel());
+                wrapperList.add(new FieldInfo(mfields.get(field).getDescribe().getLabel(), 
+                                                mfields.get(field).getDescribe().getName(),
+                                                mfields.get(field).getDescribe().getType())); //mfields.get(field).getDescribe().getType()
+                
+            }
+        }
+        System.debug('wrapperList ' + wrapperList);
+        return wrapperList;
+    }
+
+    @AuraEnabled
+    public static void saveFormRecords(String jsonFile) {
+        System.debug('jsonFile ' + jsonFile);
+        Form__c f = new  Form__c();
+        f.JSON_Data__c = jsonFile;
+        Insert f;
+    }
+
+    public class FieldInfo {
+        @AuraEnabled public String fieldLabel;
+        @AuraEnabled public String fieldName;
+        @AuraEnabled public Schema.DisplayType fieldType;
+        public FieldInfo() {
+
+        }
+        public FieldInfo(String fieldLabel, String fieldName, Schema.DisplayType fieldType) {//, Schema.DisplayType fieldType
+            this.fieldLabel = fieldLabel;
+            this.fieldName = fieldName;
+            this.fieldType = fieldType;
+        }
+    }
 }
+/*
+String sobjectname = 'forOppo__c' ; //object api name
+String fieldapiName = 'currenyonoppo__c'; //Field api name
+String fieldTypeName = Schema.getGlobalDescribe().get(sobjectname).getDescribe().fields.getMap().get(fieldApiName).getDescribe().getType().name().toupperCase(); 
+String fieldTypeName1 = Schema.getGlobalDescribe().get(sobjectname).getDescribe().fields.getMap().get(fieldApiName).getDescribe().getLabel().toupperCase(); 
+String fieldTypeName2 = Schema.getGlobalDescribe().get(sobjectname).getDescribe().fields.getMap().get(fieldApiName).getDescribe().getName().toupperCase(); 
+
+System.debug('*** fieldTypeName type = ' + fieldTypeName);   
+System.debug('*** fieldTypeName label = ' + fieldTypeName1);   
+System.debug('*** fieldTypeName Name = ' + fieldTypeName2); 
+*/

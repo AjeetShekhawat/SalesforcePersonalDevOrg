@@ -1,10 +1,15 @@
 public class accountfiltercon {
+    public String Name{get;set;}
+    public String test {get; set;}
     public String enterText{get;set;}
-  //  public List<String> searchName{get;set;}
     public String accList{get;set;}
     public List<String> accountName{get;set;}
+   
+    
     public accountfiltercon() {
+        System.debug('coming ' + test);
         accountName = new List<String>();
+        Name = 'Ajay Test';
         getsearchName();
     }
     public List<String> getsearchName() {

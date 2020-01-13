@@ -1,0 +1,9 @@
+<aura:component>
+    <aura:attribute name="UserName" type="String"/>
+    <aura:attribute name="VfValue" type="String"/>
+    
+    <div>
+        <h1> This is lightning component for visualforce page : {!v.UserName} : {!v.VfValue}</h1>
+    </div>
+    <lightning:button name="fetchValue" label="Fetch Value" onclick="{!c.fetchAttributteValue}" />
+</aura:component>
