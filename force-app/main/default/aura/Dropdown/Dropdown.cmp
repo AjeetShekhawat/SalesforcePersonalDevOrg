@@ -1,5 +1,10 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-	<aura:attribute name="toggleGer" type="boolean" default="true" />
+  
+  <aura:attribute name="toggleGer" type="boolean" default="true" />
+  <aura:handler event="aura:locationChange" action="{!c.update}"/>
+  <aura:handler name="destroy" value="{!this}" action="{!c.handleDestroy}"/>
+  <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+  
     <aura:attribute name="toggleEng" type="boolean" />
       <div class="slds-align_absolute-center ">
           <lightning:select name="mySelect" label="Select a Country" aura:id="mySelect" onchange="{!c.toggle}" >
