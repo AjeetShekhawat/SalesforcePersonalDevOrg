@@ -1,0 +1,7 @@
+### Get single user JSON
+@baseUrl = https://jsonplaceholder.typicode.com/todos/1
+GET {{baseUrl}} HTTP/1.1
+
+### Get all fake user json
+
+GET https://jsonplaceholder.typicode.com/posts HTTP/1.1

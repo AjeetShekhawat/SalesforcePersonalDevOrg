@@ -21,7 +21,7 @@ export default class FormJsonCreate extends LightningElement {
         this.callDoInit();
     }
 
-    // same as doInit in lightning component.
+    // TODO: same as doInit in lightning component.
     callDoInit() {
         doInit()
         .then(result => {
@@ -63,7 +63,7 @@ export default class FormJsonCreate extends LightningElement {
     get selected() {
         return this._selected.length ? this._selected : 'none';
     }
-
+    // FIXME: Just test
     handleChangeDualBox(e) {
         this._selected = e.detail.value;
         console.log('len ' + this._selected.length);
