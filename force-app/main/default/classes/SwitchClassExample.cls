@@ -13,4 +13,12 @@ public class SwitchClassExample {
             }
 		}
     } */
+
+    public static void testRunning() {
+        if (Test.isRunningTest()) {
+            System.debug('coming if');
+        } else {
+            System.debug('coming else');
+        }
+    }
 }
