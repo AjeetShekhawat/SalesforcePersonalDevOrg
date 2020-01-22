@@ -20,26 +20,30 @@ public without sharing class AccountsController {
     }
 
     @AuraEnabled
-    public static List<string> getAllObjectName() {
-        List<string> SObjectList = new List<string>();
+    public static List<ObjectInfo> getAllObjectName() {
+        List<String> SObjectList = new List<String>();
+        List<ObjectInfo> objWrapperList = new List<ObjectInfo>();
 
         for(Schema.SObjectType objTyp : Schema.getGlobalDescribe().Values()){
-        String name = objTyp.getDescribe().getName();
-        // Exclude all the unwanted Sobjects e.g. History, Share etc..
+            String name = objTyp.getDescribe().getName();
+            
+            // Exclude all the unwanted Sobjects e.g. History, Share etc..
 
             // if((!name.containsignorecase('history') && !name.containsignorecase('tag')&&
             //     !name.containsignorecase('share') && !name.containsignorecase('feed')) || 
             //     name.toLowerCase().right(3) ==  '__c') {      
             //     SobjectList.add(name);
             //     System.debug( 'Name : ' + name);
+            //     objWrapperList.add(new ObjectInfo(objTyp.getDescribe().getLabel(), 
+            //                                     objTyp.getDescribe().getName()));
             // }
             if(name.toLowerCase().right(3) ==  '__c') {      
-                SobjectList.add(name);
-                System.debug( 'Name : ' + name);
+                objWrapperList.add(new ObjectInfo(objTyp.getDescribe().getLabel(), 
+                                                 objTyp.getDescribe().getName()));
+                System.debug( 'objWrapperList : ' + objWrapperList);
             }
-
         }
-        return SobjectList;
+        return objWrapperList;
     }
 
     @AuraEnabled
@@ -87,6 +91,18 @@ public without sharing class AccountsController {
             this.fieldLabel = fieldLabel;
             this.fieldName = fieldName;
             this.fieldType = fieldType;
+        }
+    }
+
+    public class ObjectInfo {
+        @AuraEnabled public String objLabel;
+        @AuraEnabled public String ObjName;
+        public ObjectInfo() {
+
+        }
+        public ObjectInfo(String objLabel, String ObjName) {
+            this.objLabel = objLabel;
+            this.ObjName = ObjName;
         }
     }
 }

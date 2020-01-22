@@ -23,65 +23,31 @@ public class AccountOwnerChange {
             acc.Old_Owner__c = userNameMap.get(usrId);
         }   
     }
-  /*  public static void addTeamember(List<Account> oldList, List<Account> newList) {
-        List<Account> acclist = new List<Account>();
-        Map<ID, String> newMap = new Map<ID, String>(); 
-        set<id> usrset = new set<id>();
-        for(Account acc : oldList) {
-            usrset.add(acc.OwnerId);
-        }
-        List<User> usrlist =[select name from user where id IN:usrset];
-        for(Account acc : oldList) {
-            for(user usr : usrlist){
-                newmap.put(acc.id, usr.name);
-            }  
-        }       
-        AccountTeamMember accTeamMember = new AccountTeamMember();
-        List<AccountTeamMember> teamMemberList = new List<AccountTeamMember>();
-        for(ID ids : newMap.keySet()) {
-            for(Account a : newList) {
-                if((a.id).equals(ids)) {
-                    system.debug('Coming inside');
-                    system.debug('values' + newMap.get(a.Id));
-                    a.Old_Owner__c = newMap.get(a.Id);
-                }	
-                accTeamMember.AccountId = a.id;
-                teamMemberList.add(accTeamMember);
-            }
-        }   
-        if(!teamMemberList.isEmpty() && teamMemberList.size() > 0) {
-            insert teamMemberList;
-        }
-    } */
 
-    /*
-        public static void changeAccount(List<Account> oldList, List<Account> newList) {
-        List<Account> acclist = new List<Account>();
-        Map<ID, String> newMap = new Map<ID, String>(); 
-        system.debug('old list values'+oldList);
-        system.debug('old list values'+oldList[0].owner.name);
-        system.debug('new list values'+newList);
-        set<id> usrset = new set<id>();
-        for(Account acc : oldList) {
-            usrset.add(acc.OwnerId);
-        }
-        System.debug('usrset is ' + usrset);
-        List<User> usrlist =[select name from user where id IN : usrset];
-        for(Account acc : oldList) {
-            for(user usr : usrlist){
-                newmap.put(acc.id, usr.name);
-            }  
-        }       
-        System.debug('newmap is ' + newmap);
-        for(ID ids : newMap.keySet()) {
-            for(Account a : newList) {
-                if((a.id).equals(ids)) {
-                    system.debug('Coming inside');
-                    system.debug('values' + newMap.get(a.Id));
-                    a.Old_Owner__c = newMap.get(a.Id);
-                }	
-            }
-        }   
-    }
-    */
+  /*  // This code also will work 
+  public class AccountRecord {
+   
+   public static void AccountSale(Map<Id,Account> newMap,map<id,Account> oldmap)
+   {
+       Map<Id,Id> accOLd=new Map<Id,Id>();
+       if(newMap.values().size()>0 && oldmap.values().size()>0){
+           for(Account ac:oldmap.values())
+           {
+               if(ac.OwnerId!=newMap.get(ac.Id).OwnerId)
+               {
+                   accOLd.put(ac.Id,ac.OwnerId);
+               }
+           }
+           
+           Map<Id,User> users=new Map<Id,User>([select Id,Name from User where Id IN: accOLd.values()]);
+           for(Account ac:newMap.values())
+           {
+               ac.OldOwner__c=users.get(accOLd.get(ac.Id)).Name;
+           }
+       }
+   }
+
+} */
+
+    
 }

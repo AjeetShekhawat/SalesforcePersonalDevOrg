@@ -13,7 +13,7 @@ export default class FormJsonCreate extends LightningElement {
     @track _selected = [];
 
     sObjectListTemp = [];
-    sObjectFieldListTemp = [];
+   // sObjectFieldListTemp = [];
     fieldKeyMap = [];
     finalJsonFileToSave = {};
 
@@ -21,12 +21,12 @@ export default class FormJsonCreate extends LightningElement {
         this.callDoInit();
     }
 
-    // TODO: same as doInit in lightning component.
+    // same as doInit in lightning component.
     callDoInit() {
         doInit()
         .then(result => {
             result.forEach(element => {
-                this.sObjectListTemp.push({ label: element, value: element});
+                this.sObjectListTemp.push({ label: element.objLabel, value: element.ObjName});
             });
             this.errosrMessage = undefined;
             console.log('final result is ' + JSON.stringify(this.sObjectListTemp));
@@ -45,15 +45,18 @@ export default class FormJsonCreate extends LightningElement {
     }
 
     callBackend() {
+        let sObjectFieldListTemp = [];
+      //  console.log('objectName 111 ' + this.value);
         fetchFieldInfo({'objectName' : this.value})
         .then(result => {
-            console.log('result issss ' + JSON.stringify(result[0].fieldType));
+        //    console.log('result issss ' + JSON.stringify(result[0].fieldType));
             result.forEach(element => {
-                this.sObjectFieldListTemp.push({ label: element.fieldLabel, value: element.fieldName, fieldType: element.fieldType});
+                sObjectFieldListTemp.push({ label: element.fieldLabel, value: element.fieldName, fieldType: element.fieldType});
                 this.fieldKeyMap.push({ value: element.fieldName, element });
             });
-            console.log('result all fields ' + JSON.stringify(this.fieldKeyMap));
-            this.sObjectFieldList = this.sObjectFieldListTemp;
+        //    console.log('result all fields ' + JSON.stringify(this.fieldKeyMap));
+            console.log('sObjectFieldListTemp ' + JSON.stringify(sObjectFieldListTemp));
+            this.sObjectFieldList = sObjectFieldListTemp;
         })
         .catch(error => {
             console.log('error ' + error);
@@ -63,7 +66,7 @@ export default class FormJsonCreate extends LightningElement {
     get selected() {
         return this._selected.length ? this._selected : 'none';
     }
-    // FIXME: Just test
+
     handleChangeDualBox(e) {
         this._selected = e.detail.value;
         console.log('len ' + this._selected.length);
