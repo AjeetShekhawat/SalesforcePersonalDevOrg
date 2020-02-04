@@ -1,3 +1,4 @@
+/* eslint-disable @lwc/lwc/no-document-query */
 /* eslint-disable no-console */
 import { LightningElement,track } from 'lwc';
 import doInit from '@salesforce/apex/AccountsController.getAllObjectName';
@@ -11,9 +12,8 @@ export default class FormJsonCreate extends LightningElement {
     @track errorMessage;
     @track value = '';
     @track _selected = [];
-
+    
     sObjectListTemp = [];
-   // sObjectFieldListTemp = [];
     fieldKeyMap = [];
     finalJsonFileToSave = {};
 
@@ -46,10 +46,8 @@ export default class FormJsonCreate extends LightningElement {
 
     callBackend() {
         let sObjectFieldListTemp = [];
-      //  console.log('objectName 111 ' + this.value);
         fetchFieldInfo({'objectName' : this.value})
         .then(result => {
-        //    console.log('result issss ' + JSON.stringify(result[0].fieldType));
             result.forEach(element => {
                 sObjectFieldListTemp.push({ label: element.fieldLabel, value: element.fieldName, fieldType: element.fieldType});
                 this.fieldKeyMap.push({ value: element.fieldName, element });
@@ -98,7 +96,9 @@ export default class FormJsonCreate extends LightningElement {
     }
 
     saveData() {
-        saveRecords({'jsonFile' : JSON.stringify(this.finalJsonFileToSave)})
+        console.log('jsonFile 111 ' + JSON.stringify(this.finalJsonFileToSave));
+        
+        saveRecords({'jsonFile' : JSON.stringify(this.finalJsonFileToSave)}) 
         .then(result => {
             console.log('result after save ', result);
         })

@@ -18,7 +18,8 @@ public without sharing class AccountsController {
     public static String doInit() {
         return 'Hi This is from Apex DoInit';
     }
-
+/***************************************************************************************************** */
+/** Used in formJsonCreate lightning web component */
     @AuraEnabled
     public static List<ObjectInfo> getAllObjectName() {
         List<String> SObjectList = new List<String>();
@@ -75,10 +76,34 @@ public without sharing class AccountsController {
     @AuraEnabled
     public static void saveFormRecords(String jsonFile) {
         System.debug('jsonFile ' + jsonFile);
-        Form__c f = new  Form__c();
-        f.JSON_Data__c = jsonFile;
-        Insert f;
     }
+
+/***************************************************************************************************** End */    
+
+    /* Used in whatsAppPage lightning web component */
+    @AuraEnabled
+    public static Form__c saveWhatsAppForm(String formData) {
+        System.debug('formData ' + formData);
+        List<FormDataWrapper> formDataWrpList = new List<FormDataWrapper>();
+        FormDataWrapper formDataWrp = (FormDataWrapper) JSON.deserialize(formData, FormDataWrapper.class);
+        Form__c formRecord = new Form__c();
+        if(formDataWrp.mobileNumber != null) {
+            formRecord.To__c = formDataWrp.mobileNumber;
+        }
+        if(formDataWrp.message != null) {
+            formRecord.Message__c = formDataWrp.message;
+        }
+        if(formDataWrp.sendAt != null) {
+            formRecord.Sent_At__c = Date.valueOf(formDataWrp.sendAt);
+        }
+        if(formDataWrp.sendNow != null) {
+            formRecord.Send_Now__c = formDataWrp.sendNow;
+        }
+        System.debug('formRecord --- ' + formRecord);
+        Insert formRecord;
+        return formRecord;
+    }
+/***************************************************************************************************** End */ 
 
     public class FieldInfo {
         @AuraEnabled public String fieldLabel;
@@ -104,6 +129,12 @@ public without sharing class AccountsController {
             this.objLabel = objLabel;
             this.ObjName = ObjName;
         }
+    }
+    public class FormDataWrapper {       
+        public String mobileNumber;
+        public String message;
+        public String sendAt;
+        public Boolean sendNow;
     }
 }
 /*

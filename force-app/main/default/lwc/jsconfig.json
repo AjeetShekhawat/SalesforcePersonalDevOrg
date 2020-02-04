@@ -15,6 +15,12 @@
             "c/bikeCard": [
                 "bikeCard/bikeCard.js"
             ],
+            "c/captureFormData": [
+                "captureFormData/captureFormData.js"
+            ],
+            "c/captureFormDataInList": [
+                "captureFormDataInList/captureFormDataInList.js"
+            ],
             "c/child": [
                 "child/child.js"
             ],
@@ -101,6 +107,9 @@
             ],
             "c/utilsJs": [
                 "utilsJs/utilsJs.js"
+            ],
+            "c/whatsAppPage": [
+                "whatsAppPage/whatsAppPage.js"
             ],
             "c/zomato": [
                 "zomato/zomato.js"
