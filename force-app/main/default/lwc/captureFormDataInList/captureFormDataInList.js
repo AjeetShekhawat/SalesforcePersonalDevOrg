@@ -25,14 +25,11 @@ export default class CaptureFormDataInList extends LightningElement {
     
 
     handleChange(event) {
-        const field = event.target.name; 
-        
-          
-        if (field === 'firstName') {
-            let targetId = event.target.dataset.targetfirstname; 
+        const field = event.target.name; // fetching name of input field        
+        let targetId = event.target.dataset.targetindex;  // Fetching index of input field
+        if (field === 'firstName') { 
             this.captureData[targetId].firstName = event.target.value;
         } else if (field === 'lastName') {
-            let targetId = event.target.dataset.targetlastname; 
             this.captureData[targetId].lastName = event.target.value;
         }
     }

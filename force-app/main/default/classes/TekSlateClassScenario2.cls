@@ -38,10 +38,16 @@ public class TekSlateClassScenario2 {
         }
     }
     
-    public static void shippingAddress(List<Account> accList) {
+    public static void shippingAddress(List<Account> oldList, List<Account> accList) {
+        for(Account acc : oldList) {
+            System.debug('Coming in formula old ' + acc.Total_Count_Formula__c); 
+        }
         for(Account acc : accList) {
-            if(acc.Match_Billing_Address__c) {
-                acc.ShippingPostalCode = acc.BillingPostalCode;
+            System.debug('Coming in formula  ' + acc.Total_Count_Formula__c);   
+            if(acc.Total_Count_Formula__c > 5) {
+                acc.addError('Coming in formula if ');
+            } else {
+				System.debug('Coming in formula else ');                
             }
         }
     }

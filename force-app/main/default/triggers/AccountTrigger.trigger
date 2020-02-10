@@ -18,6 +18,7 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
       //  TekSlateClassScenario7.method(Trigger.new, trigger.oldMap);
        // TekSlateClassScenario2.duplicatePreventionOnUpdate(Trigger.new);
       //  TekSlateClassScenario2.aggregatePractice();
+      AccountNetSuiteApi.sendAccountData(JSON.serialize(Trigger.new), JSON.serialize(Trigger.oldMap));
     }
     if(Trigger.isBefore && Trigger.isDelete) {
       //  DeleteAccountClass.deleteAccount(Trigger.old);

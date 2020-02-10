@@ -15,25 +15,19 @@ export default class WhatsAppPage extends LightningElement {
         return ['.pdf', '.png'];
     }
 
-    handleInputMobileChange(event) {
-        this.value = event.detail.value;
-        this.formData.mobileNumber = this.value;
-    }
-
-    handleInputMessageChange(event) {
-        this.value = event.detail.value;
-        this.formData.message = this.value;
-    }
-
-    handleInputCheckboxChange(event) {
-        this.value = event.target.checked;
-        this.formData.sendNow = this.value;
-        console.log('kkkkkkkkkkk ', this.value);
-    }
-
-    handleInputSendChange(event) {
-        this.value = event.detail.value;
-        this.formData.sendAt = this.value;
+    handleInputChange(event) {
+        const nameValue = event.target.name;
+        if (nameValue === 'mobile') {
+            this.formData.mobileNumber = event.target.value;
+        } else if (nameValue === 'message') {
+            this.formData.message = event.target.value;
+        } else if (nameValue === 'inputCheckboc') {
+            this.formData.sendNow = event.target.checked;
+        } else if (nameValue === 'inputDate') {
+            this.formData.sendAt = event.target.value;
+        } else {
+            console.log("No. of files uploaded : ");
+        }
     }
 
     handleUploadFinished(event) {
