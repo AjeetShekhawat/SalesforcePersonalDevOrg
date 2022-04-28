@@ -2,7 +2,7 @@ public class AccountContactOppoDisplayController {
     public LIST<WrapperforDisplay> wrapList1 {get;set;}
     public AccountContactOppoDisplayController() {
         wrapList1 = new LIST<WrapperforDisplay>();
-        displayInfo();// dgfdgdfgfd
+        displayInfo();// dgfdgdfgfdcvxc
     }
     public void displayInfo() {
         System.debug('Git testing');
